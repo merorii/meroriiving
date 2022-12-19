@@ -1,12 +1,12 @@
 import type { NextPage } from "next";
 import { MainLayout } from "../components";
 
-const Home: NextPage = () => {
+const Detail: NextPage = () => {
   return (
     <MainLayout>
-      <div>메인페이지</div>
+      <div>상세페이지</div>
     </MainLayout>
   );
 };
 
-export default Home;
+export default Detail;
