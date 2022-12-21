@@ -2,7 +2,7 @@
 import React, { HTMLAttributes } from "react";
 
 // components
-import MainNav from "../MainNav";
+import { MainNav } from "src/components";
 
 // style
 import { MainContentStyled } from "./style";

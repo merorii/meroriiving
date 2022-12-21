@@ -26,10 +26,12 @@ const Detail: NextPage = ({ params }: any) => {
       <Image
         src={imageUrl(data.backdrop_path)}
         alt=""
-        width={270}
+        width={600}
         height={410}
       />
       <div>{data.title}</div>
+      <div>{data.original_title}</div>
+      <div>{data.tagline}</div>
       <div>{data.adult && "19+"}</div>
       <div>{data.status === "Released" ? "상영중" : "상영종료"}</div>
       <div>{data.released_date}</div>

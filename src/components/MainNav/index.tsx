@@ -1,6 +1,6 @@
 import { MainNavStyled } from "./style";
 
-const MainNav = () => {
+export const MainNav = () => {
   return (
     <MainNavStyled>
       <div>MERORIIVING</div>
@@ -10,5 +10,3 @@ const MainNav = () => {
     </MainNavStyled>
   );
 };
-
-export default MainNav;
