@@ -25,15 +25,13 @@ interface CarouselProps {
 
 export const Carousel = (props: CarouselProps) => {
   const { data, fade } = props;
-  const [fadeData, setFadeData] = useState<{
-    idData: number[];
-    current: number;
-  }>({ idData: [], current: 0 });
+  const [fadeData, setFadeData] = useState<number[]>([]);
+  const [current, setCurrentData] = useState(0);
 
   useEffect(() => {
-    if (fade && !fadeData.idData.length) {
+    if (fade && !fadeData.length) {
       const _idData = data.map((item: movieResult) => item.id);
-      setFadeData({ ...fadeData, idData: _idData });
+      setFadeData(_idData);
     }
   }, [data, fade, fadeData]);
 
@@ -47,9 +45,8 @@ export const Carousel = (props: CarouselProps) => {
       infinite: false,
       autoplay: false,
       nextArrow: <CustomArrow fade={fade} />,
-      prevArrow: <CustomArrow fade={fade} />,
-      afterChange: (current: number) =>
-        setFadeData({ ...fadeData, current: current }),
+      prevArrow: <CustomArrow fade={fade} first={!fade && current === 0} />,
+      afterChange: (current: number) => setCurrentData(current),
     };
 
     if (fade) {
@@ -61,11 +58,13 @@ export const Carousel = (props: CarouselProps) => {
         autoplaySpeed: 5000,
         slidesToShow: 1,
         slidesToScroll: 1,
+        pauseOnHover: false,
       };
     }
 
     return {
       ...baseSetting,
+      beforeChange: (current: number, next: number) => console.log(next),
       responsive: [
         {
           breakpoint: 1024,
@@ -83,12 +82,13 @@ export const Carousel = (props: CarouselProps) => {
         },
       ],
     };
-  }, [fade, fadeData]);
+  }, [fade, current]);
 
   return (
     <PosterLayout fade={fade}>
       <Slider {...settings()}>
-        {data.map((result: movieResult) => {
+        {data.map((result: movieResult, idx) => {
+          if (!fade) console.log(idx);
           const { id, title, poster_path, backdrop_path } = result;
           return fade ? (
             <Card key={id} fade={fade}>
@@ -98,14 +98,14 @@ export const Carousel = (props: CarouselProps) => {
             <Link key={id} href={`/detail/${id}`}>
               <Card fade={fade}>
                 <Poster posterUrl={imageUrl(poster_path)} />
-                <div style={{ color: "white" }}>{title}</div>
+                <div className="movie-title">{title}</div>
               </Card>
             </Link>
           );
         })}
       </Slider>
       {fade && (
-        <Link href={`/detail/${fadeData.idData[fadeData.current]}`}>
+        <Link href={`/detail/${fadeData[current]}`}>
           <div className="btn-more">자세히 보기</div>
         </Link>
       )}

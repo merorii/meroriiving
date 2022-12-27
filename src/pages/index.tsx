@@ -9,13 +9,6 @@ import { MainLayout, Carousel } from "../components";
 
 //api
 import { getMovieList } from "src/common/api/api";
-import styled from "styled-components";
-
-//style
-const Title = styled.div`
-  color: white;
-  margin-left: 3vw;
-`;
 
 const Home: NextPage = () => {
   const { isLoading: popularLoading, data: popular } = useQuery("popular", () =>
@@ -27,17 +20,49 @@ const Home: NextPage = () => {
     () => getMovieList("top_rated")
   );
 
-  if (popularLoading || topRatedLoading) {
+  const { isLoading: nowPlayingLoading, data: nowPlaying } = useQuery(
+    "now_playing",
+    () => getMovieList("now_playing")
+  );
+
+  const { isLoading: upcomingLoading, data: upcoming } = useQuery(
+    "upcoming",
+    () => getMovieList("upcoming")
+  );
+
+  if (
+    popularLoading ||
+    topRatedLoading ||
+    upcomingLoading ||
+    nowPlayingLoading
+  ) {
     return <div>Loading...</div>;
   }
 
   return (
     <MainLayout>
-      <Carousel data={popular.results.slice(0, 4)} fade />
-      <Title>현재 인기있는 영화</Title>
-      <Carousel data={popular.results} />
-      <Title>상위 랭킹 영화</Title>
-      <Carousel data={topRated.results} />
+      <section>
+        <Carousel data={popular.results.slice(0, 4)} fade />
+      </section>
+      <section className="main-section">
+        <section className="list-section">
+          <h2>현재 인기있는 영화</h2>
+          <Carousel data={popular.results} />
+        </section>
+        <section className="list-section">
+          <h2>상위 랭킹 영화</h2>
+          <Carousel data={topRated.results} />
+        </section>
+        <section className="list-section">
+          <h2>상영중인 영화</h2>
+          <Carousel data={nowPlaying.results} />
+        </section>
+        <section className="list-section">
+          <h2>개봉 예정 영화</h2>
+          <Carousel data={upcoming.results} />
+        </section>
+      </section>
+      <div style={{ color: "white" }}>푸터</div>
     </MainLayout>
   );
 };

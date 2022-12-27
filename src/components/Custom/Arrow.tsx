@@ -1,5 +1,5 @@
 export const CustomArrow = (props: any) => {
-  const { className, style, onClick, fade } = props;
+  const { className, style, onClick, fade, first } = props;
   const prev = className.includes("prev");
 
   return (
@@ -7,7 +7,7 @@ export const CustomArrow = (props: any) => {
       className={className}
       style={{
         ...style,
-        display: "flex",
+        display: first ? "none" : "flex",
         alignItems: "center",
         width: "50px",
         height: "100%",
