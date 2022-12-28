@@ -50,7 +50,7 @@ export const Carousel = (props: CarouselProps) => {
         slidesPerView={fade ? 1 : 6}
         slidesPerGroup={fade ? 1 : 6}
         loop={fade || false}
-        mousewheel={true}
+        mousewheel={!fade}
         navigation={true}
         pagination={{
           clickable: true,
