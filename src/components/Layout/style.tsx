@@ -6,6 +6,7 @@ export const MainContentStyled = styled.section`
   .main-section {
     position: relative;
     top: -20vw;
+    margin-bottom: -15vw;
     padding-top: 10vw;
     background: linear-gradient(
       to bottom,
@@ -17,7 +18,7 @@ export const MainContentStyled = styled.section`
 
   .list-section {
     position: relative;
-    padding: 1rem 0 2rem;
+    padding: 1rem 0;
 
     h2 {
       position: absolute;

@@ -4,7 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 
 //libraries
-import Slider from "react-slick";
+import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  Navigation,
+  Pagination,
+  EffectFade,
+  Mousewheel,
+  Autoplay,
+} from "swiper";
 
 //components
 import { CustomArrow } from "src/components";
@@ -16,7 +23,10 @@ import { movieResult } from "src/type/main";
 import { imageUrl } from "src/common/api/util";
 
 //style
-import { Card, Poster, PosterLayout } from "./style";
+import { Card, PosterLayout } from "./style";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 interface CarouselProps {
   data: movieResult[];
@@ -45,7 +55,7 @@ export const Carousel = (props: CarouselProps) => {
       infinite: false,
       autoplay: false,
       nextArrow: <CustomArrow fade={fade} />,
-      prevArrow: <CustomArrow fade={fade} first={!fade && current === 0} />,
+      prevArrow: <CustomArrow fade={fade} />,
       afterChange: (current: number) => setCurrentData(current),
     };
 
@@ -64,7 +74,7 @@ export const Carousel = (props: CarouselProps) => {
 
     return {
       ...baseSetting,
-      beforeChange: (current: number, next: number) => console.log(next),
+      //   beforeChange: (current: number, next: number) => console.log(next),
       responsive: [
         {
           breakpoint: 1024,
@@ -82,28 +92,62 @@ export const Carousel = (props: CarouselProps) => {
         },
       ],
     };
-  }, [fade, current]);
+  }, [fade]);
 
   return (
     <PosterLayout fade={fade}>
-      <Slider {...settings()}>
+      <Swiper
+        spaceBetween={10}
+        slidesPerView={fade ? 1 : 6}
+        slidesPerGroup={fade ? 1 : 6}
+        // loop={fade ? true : false}
+        navigation={true}
+        pagination={{
+          clickable: true,
+        }}
+        mousewheel={true}
+        // autoplay={
+        //   fade
+        //     ? {
+        //         delay: 2500,
+        //         disableOnInteraction: false,
+        //       }
+        //     : false
+        // }
+        effect={fade ? "fade" : "slide"}
+        modules={[Navigation, Pagination, EffectFade, Mousewheel, Autoplay]}
+        onSlideChange={() => console.log("slide change")}
+        onSwiper={(swiper) => console.log(swiper)}
+      >
         {data.map((result: movieResult, idx) => {
-          if (!fade) console.log(idx);
           const { id, title, poster_path, backdrop_path } = result;
           return fade ? (
-            <Card key={id} fade={fade}>
-              <Image layout="fill" src={imageUrl(backdrop_path)} alt="" />
-            </Card>
-          ) : (
-            <Link key={id} href={`/detail/${id}`}>
-              <Card fade={fade}>
-                <Poster posterUrl={imageUrl(poster_path)} />
-                <div className="movie-title">{title}</div>
+            <SwiperSlide>
+              <Card key={id} fade={fade}>
+                <div className="movie-poster">
+                  <Image fill src={imageUrl(backdrop_path)} alt="" />
+                </div>
               </Card>
-            </Link>
+            </SwiperSlide>
+          ) : (
+            <SwiperSlide>
+              <Link key={id} href={`/detail/${id}`}>
+                <Card fade={fade}>
+                  <div className="movie-poster">
+                    <Image
+                      fill
+                      sizes="10vw"
+                      src={imageUrl(poster_path)}
+                      alt=""
+                    />
+                  </div>
+                  <div className="movie-title">{title}</div>
+                </Card>
+              </Link>
+            </SwiperSlide>
           );
         })}
-      </Slider>
+      </Swiper>
       {fade && (
         <Link href={`/detail/${fadeData[current]}`}>
           <div className="btn-more">자세히 보기</div>

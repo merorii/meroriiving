@@ -7,8 +7,6 @@ import { QueryClientProvider, QueryClient } from "react-query";
 
 //style
 import "styles/globals.css";
-import "styles/slick-theme.css";
-import "slick-carousel/slick/slick.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
