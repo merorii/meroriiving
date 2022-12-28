@@ -59,7 +59,7 @@ export const Carousel = (props: CarouselProps) => {
         autoplay={
           fade
             ? {
-                delay: 2500,
+                delay: 5000,
                 disableOnInteraction: false,
               }
             : false
