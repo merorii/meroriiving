@@ -1,10 +1,10 @@
 //base
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 //libraries
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, useSwiperSlide } from "swiper/react";
 import {
   Navigation,
   Pagination,
@@ -12,9 +12,6 @@ import {
   Mousewheel,
   Autoplay,
 } from "swiper";
-
-//components
-import { CustomArrow } from "src/components";
 
 //type
 import { movieResult } from "src/type/main";
@@ -27,6 +24,7 @@ import { Card, PosterLayout } from "./style";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/effect-fade";
 
 interface CarouselProps {
   data: movieResult[];
@@ -45,93 +43,67 @@ export const Carousel = (props: CarouselProps) => {
     }
   }, [data, fade, fadeData]);
 
-  const settings = useCallback(() => {
-    const baseSetting = {
-      dots: true,
-      fade: false,
-      speed: 500,
-      slidesToShow: 7,
-      slidesToScroll: 6,
-      infinite: false,
-      autoplay: false,
-      nextArrow: <CustomArrow fade={fade} />,
-      prevArrow: <CustomArrow fade={fade} />,
-      afterChange: (current: number) => setCurrentData(current),
-    };
-
-    if (fade) {
-      return {
-        ...baseSetting,
-        fade: true,
-        infinite: true,
-        autoplay: true,
-        autoplaySpeed: 5000,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        pauseOnHover: false,
-      };
-    }
-
-    return {
-      ...baseSetting,
-      //   beforeChange: (current: number, next: number) => console.log(next),
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 6,
-            slidesToScroll: 5,
-          },
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 5,
-            slidesToScroll: 4,
-          },
-        },
-      ],
-    };
-  }, [fade]);
-
   return (
     <PosterLayout fade={fade}>
       <Swiper
         spaceBetween={10}
         slidesPerView={fade ? 1 : 6}
         slidesPerGroup={fade ? 1 : 6}
-        // loop={fade ? true : false}
+        loop={fade || false}
+        mousewheel={true}
         navigation={true}
         pagination={{
           clickable: true,
         }}
-        mousewheel={true}
-        // autoplay={
-        //   fade
-        //     ? {
-        //         delay: 2500,
-        //         disableOnInteraction: false,
-        //       }
-        //     : false
-        // }
         effect={fade ? "fade" : "slide"}
+        autoplay={
+          fade
+            ? {
+                delay: 2500,
+                disableOnInteraction: false,
+              }
+            : false
+        }
+        breakpoints={
+          fade
+            ? {}
+            : {
+                640: {
+                  slidesPerView: 5,
+                  slidesPerGroup: 5,
+                },
+                768: {
+                  slidesPerView: 5,
+                  slidesPerGroup: 5,
+                },
+                1024: {
+                  slidesPerView: 6,
+                  slidesPerGroup: 6,
+                },
+                1400: {
+                  slidesPerView: 7,
+                  slidesPerGroup: 7,
+                },
+              }
+        }
         modules={[Navigation, Pagination, EffectFade, Mousewheel, Autoplay]}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={(c) => {
+          fade && setCurrentData(c.realIndex);
+        }}
       >
-        {data.map((result: movieResult, idx) => {
+        {data.map((result: movieResult) => {
           const { id, title, poster_path, backdrop_path } = result;
           return fade ? (
-            <SwiperSlide>
-              <Card key={id} fade={fade}>
+            <SwiperSlide key={id}>
+              <Card fade={fade}>
                 <div className="movie-poster">
-                  <Image fill src={imageUrl(backdrop_path)} alt="" />
+                  <Image fill priority src={imageUrl(backdrop_path)} alt="" />
                 </div>
               </Card>
             </SwiperSlide>
           ) : (
-            <SwiperSlide>
-              <Link key={id} href={`/detail/${id}`}>
+            <SwiperSlide key={id}>
+              <Link href={`/detail/${id}`}>
                 <Card fade={fade}>
                   <div className="movie-poster">
                     <Image

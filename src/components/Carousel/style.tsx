@@ -1,18 +1,10 @@
 import styled, { css } from "styled-components";
 
-interface PosterProps {
-  posterUrl: string;
-}
-
 interface FadeProps {
-  fade: any;
+  fade: true | undefined;
 }
 
-interface PosterLayoutProps {
-  fade: any;
-}
-
-export const PosterLayout = styled.div<PosterLayoutProps>`
+export const PosterLayout = styled.div<FadeProps>`
   ${({ fade }) =>
     fade
       ? css`
@@ -28,12 +20,7 @@ export const PosterLayout = styled.div<PosterLayoutProps>`
           .swiper-button-prev,
           .swiper-button-next {
             display: flex !important;
-          }
-          .slick-arrow {
-            display: flex !important;
-          }
-          .slick-dots {
-            display: block !important;
+            top: 40%;
           }
         `
       : css`
@@ -53,31 +40,13 @@ export const PosterLayout = styled.div<PosterLayoutProps>`
             text-align: right;
           }
         `};
+
   .swiper {
     ${({ fade }) =>
       !fade &&
       css`
         padding: 2rem;
       `}
-  }
-
-  .swiper-button-prev {
-    /* display: flex; */
-    /* background: linear-gradient(
-      rgba(0, 0, 0, 0),
-      rgb(0, 0, 0) 44%,
-      rgba(0, 0, 0, 0)
-    );
-    left: 0;
-    padding: 3rem 3rem 3rem 1rem;
-    /* align-items: center;
-    width: 50px;
-    height: 100%;
-    background: url("https://www.tving.com/img/icon_slide_left.svg"),
-      linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0) 44%, rgba(0, 0, 0, 0));
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: 50%; */
   }
 
   .swiper-button-prev,
@@ -94,10 +63,6 @@ export const PosterLayout = styled.div<PosterLayoutProps>`
     background: white;
   }
 
-  .slick-track {
-    padding: 0 3vw;
-  }
-
   .btn-more {
     color: white;
     position: absolute;
@@ -105,7 +70,8 @@ export const PosterLayout = styled.div<PosterLayoutProps>`
     top: 32vw;
     border: 1px solid white;
     border-radius: 4px;
-    padding: 1rem 2rem;
+    padding: 1vw 2vw;
+    font-size: 1vw;
     z-index: 6;
   }
 `;
@@ -114,7 +80,7 @@ export const Card = styled.div<FadeProps>`
   .movie-poster {
     position: relative;
     width: 100%;
-    height: ${({ fade }) => (fade ? "50vw" : "23vw")};
+    height: ${({ fade }) => (fade ? "50vw" : "20vw")};
     overflow: hidden;
     border-radius: 10px;
   }
