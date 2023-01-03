@@ -103,7 +103,7 @@ export const Carousel = (props: CarouselProps) => {
             </SwiperSlide>
           ) : (
             <SwiperSlide key={id}>
-              <Link href={`/detail/${id}`}>
+              <Link href="/contents/[id]" as={`/contents/${id}`}>
                 <Card fade={fade}>
                   <div className="movie-poster">
                     <Image
@@ -121,7 +121,7 @@ export const Carousel = (props: CarouselProps) => {
         })}
       </Swiper>
       {fade && (
-        <Link href={`/detail/${fadeData[current]}`}>
+        <Link href={`/contents/${fadeData[current]}`}>
           <div className="btn-more">자세히 보기</div>
         </Link>
       )}
