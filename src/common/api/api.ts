@@ -20,3 +20,17 @@ export const getSimilar = async (id: any) => {
   );
   return data;
 };
+
+export const getRecommendations = async (id: any) => {
+  const { data } = await axios.get(
+    `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=KO`
+  );
+  return data;
+};
+
+export const getCredits = async (id: any) => {
+  const { data } = await axios.get(
+    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=KO`
+  );
+  return data;
+};

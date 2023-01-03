@@ -40,7 +40,7 @@ export const MainContentStyled = styled.section`
     color: rgba(255, 255, 255, 0.7);
     display: grid;
     column-gap: 2.5rem;
-    grid-template-columns: minmax(auto, 40rem) auto 15.5rem;
+    grid-template-columns: minmax(auto, 45vw) auto 20vw;
 
     &:after {
       content: "";
@@ -78,7 +78,7 @@ export const MainContentStyled = styled.section`
       }
     }
 
-    .contents-company {
+    .contents-credit {
       p {
         display: inline-block;
         margin-right: 0.5vw;
@@ -87,11 +87,25 @@ export const MainContentStyled = styled.section`
         margin-right: 1vw;
       }
     }
+
+    .contents-overview {
+      p {
+        display: -webkit-inline-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        overflow-wrap: break-word;
+        white-space: pre-wrap;
+        word-break: keep-all;
+        text-overflow: ellipsis;
+      }
+      div {
+        margin-top: 1rem;
+      }
+    }
   }
 
   .contents__poster {
     position: relative;
-
     grid-column-start: 3;
     width: 21vw;
     height: 28vw;
