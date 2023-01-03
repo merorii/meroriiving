@@ -89,13 +89,15 @@ const Contents: NextPage = (props: any) => {
           <Image src={imageUrl(content.poster_path)} alt="" fill sizes="10vw" />
         </div>
       </section>
-      <section className="list-section">
-        <h2>{content.title} 비슷한 영화</h2>
-        <Carousel data={similar}></Carousel>
-      </section>
-      <section className="list-section">
-        <h2>추천 영화</h2>
-        <Carousel data={recommend}></Carousel>
+      <section className="bottom_section">
+        <section className="list-section">
+          <h2>{content.title} 비슷한 영화</h2>
+          <Carousel data={similar}></Carousel>
+        </section>
+        <section className="list-section">
+          <h2>추천 영화</h2>
+          <Carousel data={recommend}></Carousel>
+        </section>
       </section>
     </MainLayout>
   );

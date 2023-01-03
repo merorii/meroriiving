@@ -27,6 +27,15 @@ export const MainContentStyled = styled.section`
     }
   }
 
+  .bottom_section {
+    position: relative;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 5%
+    );
+  }
+
   .contents__background {
     position: absolute;
     opacity: 0.2;
