@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const MainContentStyled = styled.section`
   background: black;
   color: white;
+
   .main-section {
     position: relative;
     top: -20vw;
@@ -121,5 +122,12 @@ export const MainContentStyled = styled.section`
     img {
       border-radius: 1rem;
     }
+  }
+
+  .search-section {
+    position: relative;
+    margin: 0 3vw;
+    padding: 10vw 2vw 5vw;
+    color: rgba(255, 255, 255, 0.7);
   }
 `;

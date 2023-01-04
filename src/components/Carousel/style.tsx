@@ -77,6 +77,12 @@ export const PosterLayout = styled.div<FadeProps>`
 `;
 
 export const Card = styled.div<FadeProps>`
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    opacity: 0.8;
+    transform: translate3d(0, -0.75rem, 0);
+  }
+
   .movie-poster {
     position: relative;
     width: 100%;

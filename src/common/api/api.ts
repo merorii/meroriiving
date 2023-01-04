@@ -34,3 +34,10 @@ export const getCredits = async (id: any) => {
   );
   return data;
 };
+
+export const searchMovie = async (keyword: any) => {
+  const { data } = await axios.get(
+    `https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=KO&query=${keyword}`
+  );
+  return data;
+};
