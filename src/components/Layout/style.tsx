@@ -129,5 +129,9 @@ export const MainContentStyled = styled.section`
     margin: 0 3vw;
     padding: 10vw 2vw 5vw;
     color: rgba(255, 255, 255, 0.7);
+    & > p {
+      font-size: 1.5vw;
+      margin-bottom: 1rem;
+    }
   }
 `;

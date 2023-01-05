@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const MainNavStyled = styled.header`
   display: flex;
-  align-items: center;
   position: fixed;
+  justify-content: space-between;
   top: 0;
   width: 100%;
   height: 5rem;
@@ -11,6 +11,28 @@ export const MainNavStyled = styled.header`
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
   color: white;
   z-index: 50;
+
+  div {
+    display: flex;
+    align-items: center;
+  }
+
+  .searchbar {
+    input {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #fff;
+      color: white;
+      padding: 0.5rem 1rem;
+    }
+    button {
+      width: 2rem;
+      height: 2rem;
+      margin-left: 1rem;
+      background: url("https://www.tving.com/img/icon_search.svg");
+      cursor: pointer;
+    }
+  }
 `;
 
 export const Menus = styled.div`

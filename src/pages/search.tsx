@@ -1,19 +1,37 @@
 //base
 import type { GetServerSideProps, NextPage } from "next";
-import { searchMovie } from "src/common/api/api";
+import { useRef } from "react";
 
 //components
 import { MainLayout, CardList } from "src/components";
 
-const Search: NextPage = ({ results, keyword }: any) => {
-  console.log(keyword);
+//hooks
+import { useInfiniteQueryList } from "src/hook/useInfiniteQueryList";
+import { useIntersectionObserver } from "src/hook/useIntersectionObserver";
+
+//api
+import { searchMovie } from "src/common/api/api";
+
+const Search: NextPage = ({ result, keyword }: any) => {
+  const { data, fetchNextPage } = useInfiniteQueryList(keyword);
+
+  const bottom = useRef(null);
+  const onIntersect = ([entry]: any) => entry.isIntersecting && fetchNextPage();
+  useIntersectionObserver({
+    target: bottom,
+    onIntersect,
+  });
+
   return (
     <MainLayout>
       <section className="search-section">
-        <div>
-          &#34;{keyword}&#34; 검색 결과가 {results.length}개 있습니다.
-        </div>
-        <CardList data={results}></CardList>
+        <p>
+          &#34;{keyword}&#34; 검색 결과가 {result.total_results}개 있습니다.
+        </p>
+        <CardList
+          data={data?.pages.map((item: any) => item.data).flat() || []}
+        ></CardList>
+        <div ref={bottom} />
       </section>
     </MainLayout>
   );
@@ -22,11 +40,28 @@ const Search: NextPage = ({ results, keyword }: any) => {
 export default Search;
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  const result = await searchMovie(query.keyword);
+  if (Object.keys(query).length === 0)
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/search?keyword=",
+      },
+      props: {},
+    };
+
+  if (!query.keyword)
+    return {
+      props: {
+        results: [],
+        keyword: "",
+      },
+    };
+
+  const result = await searchMovie({ keyword: query.keyword });
 
   return {
     props: {
-      results: result.results,
+      result: result,
       keyword: query.keyword,
     },
   };
