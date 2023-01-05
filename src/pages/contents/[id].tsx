@@ -15,8 +15,8 @@ import {
   getCredits,
   getMovieInfo,
   getSimilar,
-} from "src/common/api/api";
-import { country, imageUrl } from "src/common/api/util";
+} from "src/common/api";
+import { country, imageUrl } from "src/common/util";
 
 const Contents: NextPage = (props: any) => {
   const { content, similar, recommend } = props;

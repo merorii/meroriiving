@@ -1,14 +1,11 @@
 //base
 import type { GetServerSideProps, NextPage } from "next";
 
-//libraries
-import { useQuery } from "react-query";
-
 //components
 import { MainLayout, Carousel } from "../components";
 
 //api
-import { getMovieList } from "src/common/api/api";
+import { getMovieList } from "src/common/api";
 
 const Home: NextPage = (props: any) => {
   const { popular, topRated, nowPlaying, upcoming } = props;

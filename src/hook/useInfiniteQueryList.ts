@@ -1,5 +1,5 @@
 import { useInfiniteQuery } from "react-query";
-import { searchMovie } from "src/common/api/api";
+import { searchMovie } from "src/common/api";
 
 export const useInfiniteQueryList = (keyword: string) => {
   const {

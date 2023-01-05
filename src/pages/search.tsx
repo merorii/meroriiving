@@ -6,11 +6,10 @@ import { useRef } from "react";
 import { MainLayout, CardList } from "src/components";
 
 //hooks
-import { useInfiniteQueryList } from "src/hook/useInfiniteQueryList";
-import { useIntersectionObserver } from "src/hook/useIntersectionObserver";
+import { useInfiniteQueryList, useIntersectionObserver } from "src/hook";
 
 //api
-import { searchMovie } from "src/common/api/api";
+import { searchMovie } from "src/common/api";
 
 const Search: NextPage = ({ result, keyword }: any) => {
   const { data, fetchNextPage } = useInfiniteQueryList(keyword);

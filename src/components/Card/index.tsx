@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 //api
-import { imageUrl } from "src/common/api/util";
+import { imageUrl } from "src/common/util";
 
 //style
 import { CardWrap } from "./style";

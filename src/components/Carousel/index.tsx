@@ -17,7 +17,7 @@ import {
 import { movieResult } from "src/type/main";
 
 //api
-import { imageUrl } from "src/common/api/util";
+import { imageUrl } from "src/common/util";
 
 //style
 import { Card, PosterLayout } from "./style";
