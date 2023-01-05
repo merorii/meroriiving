@@ -1,7 +1,13 @@
 import { useInfiniteQuery } from "react-query";
 import { searchMovie } from "src/common/api";
-
-export const useInfiniteQueryList = (keyword: string) => {
+interface Props {
+  keyword: string;
+  api: ({ page, keyword }: any) => any;
+}
+export const useInfiniteQueryList = (
+  callback: (keyword: string, page: number) => any,
+  keyword: any
+) => {
   const {
     data,
     fetchNextPage,
@@ -9,10 +15,8 @@ export const useInfiniteQueryList = (keyword: string) => {
   } = useInfiniteQuery(
     ["searchDatas"],
     async ({ pageParam }) => {
-      const data = await searchMovie({
-        page: pageParam || 1,
-        keyword: keyword,
-      });
+      console.log(pageParam);
+      const data = await callback(keyword, pageParam || 1);
       return {
         data: data.results,
         total: data.total_pages,

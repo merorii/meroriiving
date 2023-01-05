@@ -12,7 +12,7 @@ import { useInfiniteQueryList, useIntersectionObserver } from "src/hook";
 import { searchMovie } from "src/common/api";
 
 const Search: NextPage = ({ result, keyword }: any) => {
-  const { data, fetchNextPage } = useInfiniteQueryList(keyword);
+  const { data, fetchNextPage } = useInfiniteQueryList(searchMovie, keyword);
 
   const bottom = useRef(null);
   const onIntersect = ([entry]: any) => entry.isIntersecting && fetchNextPage();
@@ -56,7 +56,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       },
     };
 
-  const result = await searchMovie({ keyword: query.keyword });
+  const result = await searchMovie(query.keyword, 1);
 
   return {
     props: {

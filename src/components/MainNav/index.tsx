@@ -23,9 +23,9 @@ export const MainNav = () => {
             setKeyword(e.target.value);
           }}
         ></input>
-        <button>
+        <div>
           <Link href={`/search?keyword=${keyword}`}></Link>
-        </button>
+        </div>
       </div>
     </MainNavStyled>
   );

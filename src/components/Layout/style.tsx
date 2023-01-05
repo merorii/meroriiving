@@ -21,10 +21,27 @@ export const MainContentStyled = styled.section`
     position: relative;
     padding: 1rem 0;
 
+    &:hover {
+      p.btn-all {
+        display: block;
+      }
+    }
+
     h2 {
       position: absolute;
       top: 0;
       margin: 0 0 0 3vw;
+    }
+
+    p.btn-all {
+      display: none;
+      position: absolute;
+      right: 2.5vw;
+      font-size: 0.8rem;
+      line-height: 1.6rem;
+      color: rgba(255, 255, 255, 0.7);
+      z-index: 2;
+      cursor: pointer;
     }
   }
 

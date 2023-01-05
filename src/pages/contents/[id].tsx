@@ -105,11 +105,13 @@ const Contents: NextPage = (props: any) => {
 
 export default Contents;
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  const contentData = await getMovieInfo(params && params.id);
-  const creditData = await getCredits(params && params.id);
-  const similarData = await getSimilar(params && params.id);
-  const recommendData = await getRecommendations(params && params.id);
+export const getServerSideProps: GetServerSideProps = async ({
+  params,
+}: any) => {
+  const contentData = await getMovieInfo(params.id);
+  const creditData = await getCredits(params.id);
+  const similarData = await getSimilar(params.id);
+  const recommendData = await getRecommendations(params.id);
 
   return {
     props: {

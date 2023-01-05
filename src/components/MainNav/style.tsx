@@ -25,12 +25,17 @@ export const MainNavStyled = styled.header`
       color: white;
       padding: 0.5rem 1rem;
     }
-    button {
+    div {
       width: 2rem;
       height: 2rem;
       margin-left: 1rem;
       background: url("https://www.tving.com/img/icon_search.svg");
+      border: none;
       cursor: pointer;
+      a {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 `;

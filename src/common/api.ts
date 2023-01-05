@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const getMovieList = async (list: string) => {
+export const getMovieList = async (list: any, page = 1) => {
   const { data } = await axios.get(
-    `https://api.themoviedb.org/3/movie/${list}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=KO`
+    `https://api.themoviedb.org/3/movie/${list}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=KO&page=${page}`
   );
   return data;
 };
@@ -35,7 +35,7 @@ export const getCredits = async (id: any) => {
   return data;
 };
 
-export const searchMovie = async ({ page, keyword }: any) => {
+export const searchMovie = async (keyword: any, page = 1) => {
   const { data } = await axios.get(
     `https://api.themoviedb.org/3/search/movie?api_key=${
       process.env.NEXT_PUBLIC_API_KEY

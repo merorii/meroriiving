@@ -6,6 +6,7 @@ import { MainLayout, Carousel } from "../components";
 
 //api
 import { getMovieList } from "src/common/api";
+import Link from "next/link";
 
 const Home: NextPage = (props: any) => {
   const { popular, topRated, nowPlaying, upcoming } = props;
@@ -18,18 +19,30 @@ const Home: NextPage = (props: any) => {
       <section className="main-section">
         <section className="list-section">
           <h2>현재 인기있는 영화</h2>
+          <p className="btn-all">
+            <Link href={`/list/popular`}>전체보기</Link>
+          </p>
           <Carousel data={popular} />
         </section>
         <section className="list-section">
           <h2>상위 랭킹 영화</h2>
+          <p className="btn-all">
+            <Link href={`/list/top_rated`}>전체보기</Link>
+          </p>
           <Carousel data={topRated} />
         </section>
         <section className="list-section">
           <h2>상영중인 영화</h2>
+          <p className="btn-all">
+            <Link href={`/list/now_playing`}>전체보기</Link>
+          </p>
           <Carousel data={nowPlaying} />
         </section>
         <section className="list-section">
           <h2>개봉 예정 영화</h2>
+          <p className="btn-all">
+            <Link href={`/list/upcoming`}>전체보기</Link>
+          </p>
           <Carousel data={upcoming} />
         </section>
       </section>

@@ -121,9 +121,9 @@ export const Carousel = (props: CarouselProps) => {
         })}
       </Swiper>
       {fade && (
-        <Link href={`/contents/${fadeData[current]}`}>
-          <div className="btn-more">자세히 보기</div>
-        </Link>
+        <div className="btn-more">
+          <Link href={`/contents/${fadeData[current]}`}>자세히 보기 </Link>
+        </div>
       )}
     </PosterLayout>
   );

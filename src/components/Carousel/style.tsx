@@ -36,7 +36,7 @@ export const PosterLayout = styled.div<FadeProps>`
           .swiper-pagination {
             top: 0;
             bottom: auto;
-            padding-right: 3vw;
+            padding-right: 8vw;
             text-align: right;
           }
         `};
