@@ -2,7 +2,7 @@
 import { Card } from "src/components";
 
 //type
-import { movieResult } from "src/type/main";
+import { movieResult } from "src/type";
 
 //style
 import { ListWrap } from "./style";
@@ -14,7 +14,7 @@ export const CardList = (props: Props) => {
   const { data } = props;
   return (
     <ListWrap>
-      {data.map((result: any) => {
+      {data.map((result: movieResult) => {
         const { id, poster_path, title } = result;
         return <Card key={id} card={{ id, poster_path, title }}></Card>;
       })}

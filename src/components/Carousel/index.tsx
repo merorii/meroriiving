@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 //libraries
-import { Swiper, SwiperSlide, useSwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import {
   Navigation,
   Pagination,
@@ -14,7 +14,7 @@ import {
 } from "swiper";
 
 //type
-import { movieResult } from "src/type/main";
+import { movieResult } from "src/type";
 
 //api
 import { imageUrl } from "src/common/util";

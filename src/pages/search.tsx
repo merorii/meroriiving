@@ -11,7 +11,10 @@ import { useInfiniteQueryList, useIntersectionObserver } from "src/hook";
 //api
 import { searchMovie } from "src/common/api";
 
-const Search: NextPage = ({ result, keyword }: any) => {
+//type
+import { InfiniteDataProps, SearchPageProps } from "src/type";
+
+const Search: NextPage<SearchPageProps> = ({ result, keyword }) => {
   const { data, fetchNextPage } = useInfiniteQueryList(searchMovie, keyword);
 
   const bottom = useRef(null);
@@ -28,7 +31,9 @@ const Search: NextPage = ({ result, keyword }: any) => {
           &#34;{keyword}&#34; 검색 결과가 {result.total_results}개 있습니다.
         </p>
         <CardList
-          data={data?.pages.map((item: any) => item.data).flat() || []}
+          data={
+            data?.pages.map((item: InfiniteDataProps) => item.data).flat() || []
+          }
         ></CardList>
         <div ref={bottom} />
       </section>

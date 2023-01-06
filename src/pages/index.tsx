@@ -1,15 +1,25 @@
 //base
 import type { GetServerSideProps, NextPage } from "next";
+import Link from "next/link";
 
 //components
 import { MainLayout, Carousel } from "../components";
 
+//type
+import { TypeProps, HomePageProps } from "src/type";
+
 //api
 import { getMovieList } from "src/common/api";
-import Link from "next/link";
+import { menuName } from "src/common/util";
 
-const Home: NextPage = (props: any) => {
+const Home: NextPage<HomePageProps> = (props) => {
   const { popular, topRated, nowPlaying, upcoming } = props;
+  const types: TypeProps = {
+    popular: popular,
+    top_rated: topRated,
+    now_playing: nowPlaying,
+    upcoming: upcoming,
+  };
 
   return (
     <MainLayout>
@@ -17,34 +27,15 @@ const Home: NextPage = (props: any) => {
         <Carousel data={popular.slice(0, 4)} fade />
       </section>
       <section className="main-section">
-        <section className="list-section">
-          <h2>현재 인기있는 영화</h2>
-          <p className="btn-all">
-            <Link href={`/list/popular`}>전체보기</Link>
-          </p>
-          <Carousel data={popular} />
-        </section>
-        <section className="list-section">
-          <h2>상위 랭킹 영화</h2>
-          <p className="btn-all">
-            <Link href={`/list/top_rated`}>전체보기</Link>
-          </p>
-          <Carousel data={topRated} />
-        </section>
-        <section className="list-section">
-          <h2>상영중인 영화</h2>
-          <p className="btn-all">
-            <Link href={`/list/now_playing`}>전체보기</Link>
-          </p>
-          <Carousel data={nowPlaying} />
-        </section>
-        <section className="list-section">
-          <h2>개봉 예정 영화</h2>
-          <p className="btn-all">
-            <Link href={`/list/upcoming`}>전체보기</Link>
-          </p>
-          <Carousel data={upcoming} />
-        </section>
+        {Object.keys(types).map((type) => (
+          <section className="list-section" key={type}>
+            <h2>{menuName(type)} 영화</h2>
+            <p className="btn-all">
+              <Link href={`/list/${type}`}>전체보기</Link>
+            </p>
+            <Carousel data={types[type]} />
+          </section>
+        ))}
       </section>
       <div style={{ color: "white" }}>푸터</div>
     </MainLayout>

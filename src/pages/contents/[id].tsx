@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Carousel, MainLayout } from "src/components";
 
 //type
-import { genre } from "src/type/content";
+import { genre, ContentPageProps, crew } from "src/type";
 
 //common
 import {
@@ -18,19 +18,15 @@ import {
 } from "src/common/api";
 import { country, imageUrl } from "src/common/util";
 
-const Contents: NextPage = (props: any) => {
+const Contents: NextPage<ContentPageProps> = (props) => {
   const { content, similar, recommend } = props;
   const [overviewStatus, setOverviewStatus] = useState(false);
 
   return (
     <MainLayout>
-      <Image
-        src={imageUrl(content.backdrop_path)}
-        alt=""
-        fill
-        priority
-        className="contents__background"
-      />
+      <div className="contents__background">
+        <Image src={imageUrl(content.backdrop_path)} alt="" fill priority />
+      </div>
       <section className="contents__section">
         <div className="contents__text">
           <div className="contents-title">{content.title}</div>
@@ -42,9 +38,10 @@ const Contents: NextPage = (props: any) => {
             <p className="contents-date">
               {content.release_date.split("-")[0]}
             </p>
-            {content.production_countries[0] && (
-              <p>{country(content.production_countries[0].iso_3166_1)}</p>
-            )}
+            {content.production_countries &&
+              content.production_countries[0] && (
+                <p>{country(content.production_countries[0].iso_3166_1)}</p>
+              )}
             <p>{content.runtime}분</p>
             {content.genres &&
               content.genres.map((genre: genre) => (
@@ -55,20 +52,20 @@ const Contents: NextPage = (props: any) => {
           <div className="contents-credit">
             <div>
               <p>제작</p>
-              {
+              {content.crew &&
                 content.crew.find(
-                  (crew: any) => crew.department === "Directing"
-                ).name
-              }
+                  (crew: crew) => crew.department === "Directing"
+                )?.name}
             </div>
             <div>
               <p>출연</p>
-              {content.cast.slice(0, 4).map((crew: any, idx: number) => (
-                <p key={crew.id}>
-                  {crew.name}
-                  {idx < 3 && ","}
-                </p>
-              ))}
+              {content.cast &&
+                content.cast.slice(0, 4).map((crew: crew, idx: number) => (
+                  <p key={crew.id}>
+                    {crew.name}
+                    {idx < 3 && ","}
+                  </p>
+                ))}
             </div>
           </div>
           {content.tagline && <div>{content.tagline}</div>}

@@ -1,19 +1,21 @@
 //base
 import type { GetServerSideProps, NextPage } from "next";
-import Image from "next/image";
 import { useRef } from "react";
-import { getMovieList } from "src/common/api";
 
 //components
 import { CardList, MainLayout } from "src/components";
+
+//hook
 import { useInfiniteQueryList, useIntersectionObserver } from "src/hook";
 
-//type
-
 //common
+import { getMovieList } from "src/common/api";
+import { menuName } from "src/common/util";
 
-const List: NextPage = ({ result, params }: any) => {
-  console.log(result);
+//type
+import { InfiniteDataProps, ListPageProps } from "src/type";
+
+const List: NextPage<ListPageProps> = ({ result, params }) => {
   const { data, fetchNextPage } = useInfiniteQueryList(
     getMovieList,
     params.type
@@ -30,10 +32,12 @@ const List: NextPage = ({ result, params }: any) => {
     <MainLayout>
       <section className="search-section">
         <p>
-          &#34;{params.type}&#34; 검색 결과가 {result.total_results}개 있습니다.
+          {menuName(params.type)} 영화 검색결과({result.total_results}개)
         </p>
         <CardList
-          data={data?.pages.map((item: any) => item.data).flat() || []}
+          data={
+            data?.pages.map((item: InfiniteDataProps) => item.data).flat() || []
+          }
         ></CardList>
         <div ref={bottom} />
       </section>

@@ -1,12 +1,9 @@
 import { useInfiniteQuery } from "react-query";
-import { searchMovie } from "src/common/api";
-interface Props {
-  keyword: string;
-  api: ({ page, keyword }: any) => any;
-}
+import { movieListResult } from "src/type";
+
 export const useInfiniteQueryList = (
-  callback: (keyword: string, page: number) => any,
-  keyword: any
+  callback: (keyword: string, page: number) => Promise<movieListResult>,
+  keyword: string
 ) => {
   const {
     data,
@@ -15,7 +12,6 @@ export const useInfiniteQueryList = (
   } = useInfiniteQuery(
     ["searchDatas"],
     async ({ pageParam }) => {
-      console.log(pageParam);
       const data = await callback(keyword, pageParam || 1);
       return {
         data: data.results,

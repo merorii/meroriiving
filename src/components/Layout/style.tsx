@@ -57,6 +57,8 @@ export const MainContentStyled = styled.section`
   .contents__background {
     position: absolute;
     opacity: 0.2;
+    width: 100vw;
+    height: 80vh;
   }
 
   .contents__section {

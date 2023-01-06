@@ -18,3 +18,18 @@ export const country = (country: string) => {
       return country;
   }
 };
+
+export const menuName = (name: string) => {
+  switch (name) {
+    case "popular":
+      return "현재 인기있는";
+    case "top_rated":
+      return "상위 랭킹";
+    case "now_playing":
+      return "상영중인";
+    case "upcoming":
+      return "개봉 예정";
+    default:
+      return "";
+  }
+};
