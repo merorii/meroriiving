@@ -1,5 +1,5 @@
 import { useInfiniteQuery } from "react-query";
-import { movieListResult } from "src/type";
+import { movieListResult } from "src/types";
 
 export const useInfiniteQueryList = (
   callback: (keyword: string, page: number) => Promise<movieListResult>,

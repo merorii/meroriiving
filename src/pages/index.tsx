@@ -6,7 +6,7 @@ import Link from "next/link";
 import { MainLayout, Carousel } from "../components";
 
 //type
-import { TypeProps, HomePageProps } from "src/type";
+import { TypeProps, HomePageProps } from "src/types";
 
 //api
 import { getMovieList } from "src/common/api";

@@ -14,7 +14,7 @@ import {
 } from "swiper";
 
 //type
-import { movieResult } from "src/type";
+import { movieResult } from "src/types";
 
 //api
 import { imageUrl } from "src/common/util";

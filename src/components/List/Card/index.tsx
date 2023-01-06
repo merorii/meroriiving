@@ -2,7 +2,7 @@
 import { Card } from "src/components";
 
 //type
-import { movieResult } from "src/type";
+import { movieResult } from "src/types";
 
 //style
 import { ListWrap } from "./style";

@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Carousel, MainLayout } from "src/components";
 
 //type
-import { genre, ContentPageProps, crew } from "src/type";
+import { genre, ContentPageProps, crew } from "src/types";
 
 //common
 import {

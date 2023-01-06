@@ -6,14 +6,14 @@ import { useRef } from "react";
 import { CardList, MainLayout } from "src/components";
 
 //hook
-import { useInfiniteQueryList, useIntersectionObserver } from "src/hook";
+import { useInfiniteQueryList, useIntersectionObserver } from "src/hooks";
 
 //common
 import { getMovieList } from "src/common/api";
 import { menuName } from "src/common/util";
 
 //type
-import { InfiniteDataProps, ListPageProps } from "src/type";
+import { InfiniteDataProps, ListPageProps } from "src/types";
 
 const List: NextPage<ListPageProps> = ({ result, params }) => {
   const { data, fetchNextPage } = useInfiniteQueryList(
