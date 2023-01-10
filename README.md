@@ -3,6 +3,9 @@
 tving 사이트 디자인을 참고하여 제작한 영화 정보 사이트
 <br/><br/>
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/86633869-76e3-40bb-9a3b-e52b0cd09ee2/deploy-status)](https://app.netlify.com/sites/timely-mooncake-e2737b/deploys)
+<br/><br/>
+
 # **화면**
 
 _추가예정_
