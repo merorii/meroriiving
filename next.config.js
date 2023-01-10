@@ -10,7 +10,5 @@ module.exports = {
   },
   images: {
     domains: ["image.tmdb.org", "localhost"],
-    loader: "imgix",
-    path: "https://merorii.github.io/meroriiving/",
   },
 };
