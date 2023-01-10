@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const MainContentStyled = styled.section`
   background: black;
   color: white;
+  min-height: 100vh;
 
   .main-section {
     position: relative;
@@ -152,5 +153,13 @@ export const MainContentStyled = styled.section`
       font-size: 1.5vw;
       margin-bottom: 1rem;
     }
+  }
+
+  .page-404 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
 `;

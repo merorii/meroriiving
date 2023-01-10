@@ -28,7 +28,8 @@ const Search: NextPage<SearchPageProps> = ({ result, keyword }) => {
     <MainLayout>
       <section className="search-section">
         <p>
-          &#34;{keyword}&#34; 검색 결과가 {result.total_results}개 있습니다.
+          &#34;{keyword}&#34; 검색 결과가 {result?.total_results || 0}개
+          있습니다.
         </p>
         <CardList
           data={
