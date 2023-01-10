@@ -1,9 +1,14 @@
 # **MERORRIVING**
 
 tving 사이트 디자인을 참고하여 제작한 영화 정보 사이트
+https://meroriiving.vercel.app/
 <br/><br/>
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/86633869-76e3-40bb-9a3b-e52b0cd09ee2/deploy-status)](https://app.netlify.com/sites/timely-mooncake-e2737b/deploys)
+# **사용기술**
+
+<img src="https://img.shields.io/badge/next.js -333?style=flat-square&logo=next.js&logoColor=000"/> <img src="https://img.shields.io/badge/typescript -333?style=flat-square&logo=typescript&logoColor=3178C6"/>
+<img src="https://img.shields.io/badge/styled components -333?style=flat-square&logo=styled-components&logoColor=DB7093"/>
+<img src="https://img.shields.io/badge/vercel -333?style=flat-square&logo=vercel&logoColor=000"/>
 <br/><br/>
 
 # **화면**
