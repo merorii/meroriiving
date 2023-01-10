@@ -1,6 +1,6 @@
 # **MERORRIVING**
 
-tving 사이트 디자인을 참고하여 제작한 영화 정보 사이트
+tving 사이트 디자인을 참고하여 제작한 영화 정보 사이트  
 https://meroriiving.vercel.app/
 <br/><br/>
 
@@ -58,5 +58,5 @@ $ yarn
 **실행**
 
 ```
-$ npm run dev
+$ yarn dev
 ```
