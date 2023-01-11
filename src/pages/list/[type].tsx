@@ -16,10 +16,11 @@ import { menuName } from "src/common/util";
 import { InfiniteDataProps, ListPageProps } from "src/types";
 
 const List: NextPage<ListPageProps> = ({ result, params }) => {
-  const { data, fetchNextPage } = useInfiniteQueryList(
+  const { pages, fetchNextPage } = useInfiniteQueryList(
     getMovieList,
     params.type
   );
+  const data = pages?.pages;
 
   const bottom = useRef(null);
   const onIntersect = ([entry]: any) => entry.isIntersecting && fetchNextPage();
@@ -35,9 +36,7 @@ const List: NextPage<ListPageProps> = ({ result, params }) => {
           {menuName(params.type)} 영화 검색결과({result.total_results}개)
         </p>
         <CardList
-          data={
-            data?.pages.map((item: InfiniteDataProps) => item.data).flat() || []
-          }
+          data={data?.map((item: InfiniteDataProps) => item.data).flat() || []}
         ></CardList>
         <div ref={bottom} />
       </section>

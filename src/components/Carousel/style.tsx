@@ -80,6 +80,7 @@ export const PosterLayout = styled.div<FadeProps>`
 `;
 
 export const Card = styled.div<FadeProps>`
+  /* width: 100%; */
   ${({ fade }) =>
     !fade &&
     css`

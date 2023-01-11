@@ -6,6 +6,15 @@ import { MainNavStyled, Menus } from "./style";
 export const MainNav = () => {
   const [keyword, setKeyword] = useState("");
   const router = useRouter();
+
+  const moveSearchPage = () => {
+    if (!keyword) {
+      alert("검색어를 입력하세요.");
+      return;
+    }
+    router.push(`/search?keyword=${keyword}`);
+  };
+
   return (
     <MainNavStyled>
       <div>
@@ -24,16 +33,11 @@ export const MainNav = () => {
           onChange={(e) => {
             setKeyword(e.target.value);
           }}
-        ></input>
-        <div
-          onClick={() => {
-            if (!keyword) {
-              alert("검색어를 입력하세요.");
-              return;
-            }
-            router.push(`/search?keyword=${keyword}`);
+          onKeyDown={(e) => {
+            if (e.keyCode === 13) moveSearchPage();
           }}
-        ></div>
+        ></input>
+        <div onClick={moveSearchPage}></div>
       </div>
     </MainNavStyled>
   );

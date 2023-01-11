@@ -105,14 +105,19 @@ export const Carousel = (props: CarouselProps) => {
             <SwiperSlide key={id}>
               <Link href="/contents/[id]" as={`/contents/${id}`}>
                 <Card fade={fade}>
-                  <div className="movie-poster">
-                    <Image
-                      fill
-                      sizes="10vw"
-                      src={imageUrl(poster_path)}
-                      alt=""
-                    />
-                  </div>
+                  {poster_path ? (
+                    <div className="movie-poster">
+                      <Image
+                        fill
+                        sizes="10vw"
+                        src={imageUrl(poster_path)}
+                        alt=""
+                      />
+                    </div>
+                  ) : (
+                    <div className="movie-poster blank">준비중입니다.</div>
+                  )}
+
                   <div className="movie-title">{title}</div>
                 </Card>
               </Link>

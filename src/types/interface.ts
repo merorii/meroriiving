@@ -71,6 +71,7 @@ export interface TypeProps {
 
 export interface InfiniteDataProps {
   data: movieResult[];
-  total: number;
+  total_pages: number;
+  total_result: number;
   page: number;
 }

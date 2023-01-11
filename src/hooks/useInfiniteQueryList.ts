@@ -6,22 +6,23 @@ export const useInfiniteQueryList = (
   keyword: string
 ) => {
   const {
-    data,
+    data: pages,
     fetchNextPage,
     hasNextPage = true,
   } = useInfiniteQuery(
     ["searchDatas"],
     async ({ pageParam }) => {
-      const data = await callback(keyword, pageParam || 1);
+      const res = await callback(keyword, pageParam || 1);
       return {
-        data: data.results,
-        total: data.total_pages,
-        page: data.page,
+        data: res.results,
+        total_pages: res.total_pages,
+        total_result: res.total_results,
+        page: res.page,
       };
     },
     {
       getNextPageParam: (lastPage) => {
-        if (lastPage.total > lastPage.page) {
+        if (lastPage.total_pages > lastPage.page) {
           return lastPage.page + 1;
         }
         return undefined;
@@ -33,7 +34,7 @@ export const useInfiniteQueryList = (
   );
 
   return {
-    data,
+    pages,
     fetchNextPage,
     hasNextPage,
   };
