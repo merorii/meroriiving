@@ -62,8 +62,15 @@ export const MainContentStyled = styled.section`
   .contents__background {
     position: absolute;
     opacity: 0.2;
-    width: 100vw;
+    width: 100%;
     height: 80vh;
+
+    @media only screen and (max-width: 768px) {
+      position: relative;
+      height: 40vh;
+      opacity: 1;
+      margin-top: 5rem;
+    }
   }
 
   .contents__section {
@@ -84,6 +91,10 @@ export const MainContentStyled = styled.section`
       right: 0;
       height: 1px;
       background-color: rgba(255, 255, 255, 0.18);
+    }
+
+    @media only screen and (max-width: 768px) {
+      padding-top: 6vw;
     }
   }
 
@@ -107,7 +118,7 @@ export const MainContentStyled = styled.section`
         border: 1px solid rgba(255, 255, 255, 0.7);
         padding: 0.1rem 0.3rem;
         border-radius: 3px;
-        margin-right: 0.5vw;
+        margin: 0 0.5vw 0.5vw 0;
         font-size: 0.9rem;
       }
     }
@@ -145,6 +156,9 @@ export const MainContentStyled = styled.section`
     height: 28vw;
     border-radius: 1rem;
     overflow: hidden;
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
   }
   .blank {
     display: flex;

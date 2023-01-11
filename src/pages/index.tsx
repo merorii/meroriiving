@@ -37,7 +37,6 @@ const Home: NextPage<HomePageProps> = (props) => {
           </section>
         ))}
       </section>
-      <div style={{ color: "white" }}>푸터</div>
     </MainLayout>
   );
 };
