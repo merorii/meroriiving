@@ -38,6 +38,12 @@ export const MainNavStyled = styled.header`
       }
     }
   }
+
+  @media only screen and (max-width: 768px) {
+    h1 {
+      font-size: 5vw;
+    }
+  }
 `;
 
 export const Menus = styled.div`
@@ -45,5 +51,9 @@ export const Menus = styled.div`
   margin-left: 3vw;
   div + div {
     margin-left: 2vw;
+  }
+
+  @media only screen and (max-width: 768px) {
+    display: none !important;
   }
 `;

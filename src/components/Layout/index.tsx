@@ -2,7 +2,7 @@
 import React, { HTMLAttributes } from "react";
 
 // components
-import { MainNav } from "src/components";
+import { Footer, MainNav } from "src/components";
 
 // style
 import { MainContentStyled } from "./style";
@@ -14,6 +14,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     <>
       <MainNav />
       <MainContentStyled>{children}</MainContentStyled>
+      <Footer />
     </>
   );
 };

@@ -8,7 +8,7 @@ export const MainContentStyled = styled.section`
   .main-section {
     position: relative;
     top: -20vw;
-    margin-bottom: -15vw;
+    margin-bottom: -10vw;
     padding-top: 10vw;
     background: linear-gradient(
       to bottom,
@@ -95,6 +95,7 @@ export const MainContentStyled = styled.section`
 
     @media only screen and (max-width: 768px) {
       padding-top: 6vw;
+      display: block;
     }
   }
 
@@ -110,6 +111,10 @@ export const MainContentStyled = styled.section`
       font-weight: bold;
       margin-bottom: 0;
       color: white;
+
+      @media only screen and (max-width: 768px) {
+        font-size: 1.5rem;
+      }
     }
 
     .contents-tag {
