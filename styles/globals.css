@@ -7,6 +7,10 @@ p {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+body {
+  background: #000;
+}
+
 a {
   color: inherit;
   text-decoration: none;

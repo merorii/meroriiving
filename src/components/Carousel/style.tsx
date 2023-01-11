@@ -76,6 +76,10 @@ export const PosterLayout = styled.div<FadeProps>`
     padding: 1vw 2vw;
     font-size: 1vw;
     z-index: 6;
+
+    @media only screen and (max-width: 768px) {
+      font-size: 0.9rem;
+    }
   }
 `;
 
@@ -124,5 +128,9 @@ export const Card = styled.div<FadeProps>`
     text-overflow: ellipsis;
     white-space: nowrap;
     word-wrap: break-word;
+
+    @media only screen and (max-width: 768px) {
+      font-size: 1rem;
+    }
   }
 `;
