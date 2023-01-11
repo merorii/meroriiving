@@ -13,9 +13,11 @@ import { searchMovie } from "src/common/api";
 
 //type
 import { InfiniteDataProps, SearchPageProps } from "src/types";
+import { useRouter } from "next/router";
 
-const Search: NextPage<SearchPageProps> = ({ result, keyword }) => {
-  const { data, fetchNextPage } = useInfiniteQueryList(searchMovie, keyword);
+const Search: NextPage<SearchPageProps> = ({ keyword }) => {
+  const { pages, fetchNextPage } = useInfiniteQueryList(searchMovie, keyword);
+  const data = pages?.pages;
 
   const bottom = useRef(null);
   const onIntersect = ([entry]: any) => entry.isIntersecting && fetchNextPage();
@@ -28,13 +30,11 @@ const Search: NextPage<SearchPageProps> = ({ result, keyword }) => {
     <MainLayout>
       <section className="search-section">
         <p>
-          &#34;{keyword}&#34; 검색 결과가 {result?.total_results || 0}개
-          있습니다.
+          &#34;{keyword}&#34; 검색 결과가 {(data && data[0].total_result) || 0}
+          개 있습니다.
         </p>
         <CardList
-          data={
-            data?.pages.map((item: InfiniteDataProps) => item.data).flat() || []
-          }
+          data={data?.map((item: InfiniteDataProps) => item.data).flat() || []}
         ></CardList>
         <div ref={bottom} />
       </section>
@@ -62,11 +62,11 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       },
     };
 
-  const result = await searchMovie(query.keyword, 1);
+  // const result = await searchMovie(query.keyword, 1);
 
   return {
     props: {
-      result: result,
+      // result: result,
       keyword: query.keyword,
     },
   };

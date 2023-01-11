@@ -25,7 +25,9 @@ const Contents: NextPage<ContentPageProps> = (props) => {
   return (
     <MainLayout>
       <div className="contents__background">
-        <Image src={imageUrl(content.backdrop_path)} alt="" fill priority />
+        {content.backdrop_path && (
+          <Image src={imageUrl(content.backdrop_path)} alt="" fill priority />
+        )}
       </div>
       <section className="contents__section">
         <div className="contents__text">
@@ -83,7 +85,16 @@ const Contents: NextPage<ContentPageProps> = (props) => {
           </div>
         </div>
         <div className="contents__poster">
-          <Image src={imageUrl(content.poster_path)} alt="" fill sizes="10vw" />
+          {content.poster_path ? (
+            <Image
+              src={imageUrl(content.poster_path)}
+              alt=""
+              fill
+              sizes="10vw"
+            />
+          ) : (
+            <div className="blank">이미지 준비중입니다.</div>
+          )}
         </div>
       </section>
       <section className="bottom_section">

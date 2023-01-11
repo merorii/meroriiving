@@ -20,7 +20,7 @@ export const Card = (props: Props) => {
   return (
     <CardWrap>
       <Link href="/contents/[id]" as={`/contents/${id}`}>
-        <div className="poster movie-poster">
+        <div className="movie-poster">
           {poster_path ? (
             <Image fill sizes="10vw" src={imageUrl(poster_path)} alt="" />
           ) : (
