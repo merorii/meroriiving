@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { MainNavStyled, Menus } from "./style";
 
 export const MainNav = () => {
   const [keyword, setKeyword] = useState("");
+  const router = useRouter();
   return (
     <MainNavStyled>
       <div>
@@ -23,9 +25,15 @@ export const MainNav = () => {
             setKeyword(e.target.value);
           }}
         ></input>
-        <div>
-          <Link href={`/search?keyword=${keyword}`}></Link>
-        </div>
+        <div
+          onClick={() => {
+            if (!keyword) {
+              alert("검색어를 입력하세요.");
+              return;
+            }
+            router.push(`/search?keyword=${keyword}`);
+          }}
+        ></div>
       </div>
     </MainNavStyled>
   );

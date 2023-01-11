@@ -153,6 +153,20 @@ export const MainContentStyled = styled.section`
       font-size: 1.5vw;
       margin-bottom: 1rem;
     }
+
+    @media only screen and (min-width: 1400px) {
+      & > p {
+        font-size: 1.1rem;
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      margin: 0 1vw;
+    }
+    @media only screen and (max-width: 600px) {
+      & > p {
+        font-size: 1rem;
+      }
+    }
   }
 
   .page-404 {

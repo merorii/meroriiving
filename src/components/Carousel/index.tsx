@@ -47,8 +47,8 @@ export const Carousel = (props: CarouselProps) => {
     <PosterLayout fade={fade}>
       <Swiper
         spaceBetween={10}
-        slidesPerView={fade ? 1 : 6}
-        slidesPerGroup={fade ? 1 : 6}
+        slidesPerView={fade ? 1 : 3}
+        slidesPerGroup={fade ? 1 : 3}
         loop={fade || false}
         mousewheel={!fade}
         navigation={true}
@@ -73,16 +73,16 @@ export const Carousel = (props: CarouselProps) => {
                   slidesPerGroup: 5,
                 },
                 768: {
-                  slidesPerView: 5,
-                  slidesPerGroup: 5,
-                },
-                1024: {
                   slidesPerView: 6,
                   slidesPerGroup: 6,
                 },
-                1400: {
+                1024: {
                   slidesPerView: 7,
                   slidesPerGroup: 7,
+                },
+                1400: {
+                  slidesPerView: 8,
+                  slidesPerGroup: 8,
                 },
               }
         }

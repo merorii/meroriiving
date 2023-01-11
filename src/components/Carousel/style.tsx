@@ -46,6 +46,9 @@ export const PosterLayout = styled.div<FadeProps>`
       !fade &&
       css`
         padding: 2rem;
+        @media only screen and (max-width: 768px) {
+          padding: 2rem 1rem;
+        }
       `}
   }
 
@@ -90,16 +93,32 @@ export const Card = styled.div<FadeProps>`
   .movie-poster {
     position: relative;
     width: 100%;
-    height: ${({ fade }) => (fade ? "50vw" : "20vw")};
+    height: ${({ fade }) => (fade ? "50vw" : "15vw")};
     overflow: hidden;
     border-radius: 10px;
+    ${({ fade }) =>
+      !fade &&
+      css`
+        @media only screen and (max-width: 1400px) {
+          height: 16vw;
+        }
+        @media only screen and (max-width: 1024px) {
+          height: 18vw;
+        }
+        @media only screen and (max-width: 768px) {
+          height: 24vw;
+        }
+        @media only screen and (max-width: 639px) {
+          height: 42vw;
+        }
+      `};
   }
 
   .movie-title {
     padding: 0.6em 1em 0 0.05em;
     box-sizing: border-box;
     color: hsla(0, 0%, 100%, 0.7);
-    font-size: 1.2vw;
+    font-size: 1vw;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
