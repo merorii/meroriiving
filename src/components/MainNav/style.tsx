@@ -12,30 +12,24 @@ export const MainNavStyled = styled.header`
   color: white;
   z-index: 50;
 
-  div {
+  & > div {
     display: flex;
     align-items: center;
   }
 
-  .searchbar {
-    input {
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid #fff;
-      color: white;
-      padding: 0.5rem 1rem;
+  .search-icon {
+    width: 2rem;
+    height: 2rem;
+    margin-left: 1rem;
+    background: url("https://www.tving.com/img/icon_search.svg");
+    border: none;
+    cursor: pointer;
+    a {
+      width: 100%;
+      height: 100%;
     }
-    div {
-      width: 2rem;
-      height: 2rem;
-      margin-left: 1rem;
-      background: url("https://www.tving.com/img/icon_search.svg");
-      border: none;
-      cursor: pointer;
-      a {
-        width: 100%;
-        height: 100%;
-      }
+    &.exit {
+      background: url("https://www.tving.com/img/x.svg");
     }
   }
 
