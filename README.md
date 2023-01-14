@@ -16,7 +16,7 @@ https://meroriiving.vercel.app/
 **TODO**
 
 - [ ] 코드 리팩토링
-  - [ ] css 네이밍 통일
+  - [x] css 네이밍 통일
   - [ ] 스타일컴포넌트명 통일
   - [ ] api 두번 호출 이슈 수정
   - [ ] 공통 부분 컴포넌트화
@@ -36,16 +36,17 @@ https://meroriiving.vercel.app/
 
 <br/><br/>
 
-# **블로그**
+# **개발과정**
 
-- [x] 세팅
-- [x] react-query
-- [x] getserversideprops
-- [x] carousel
-- [ ] 검색기능
-- [ ] infinite scroll
-- [ ] 배포
-- [ ] 영상기능
+blog : https://velog.io/@merorii/series/next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8
+
+- [x] [next 프로젝트 setting](https://velog.io/@merorii/Next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%84%B8%ED%8C%85)
+- [x] [react-query](https://velog.io/@merorii/Next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-Open-API)
+- [x] [getserversideprops](https://velog.io/@merorii/Next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-getServersideProps)
+- [x] [carousel](https://velog.io/@merorii/Next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-carousel-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-react-slick)
+- [x] [infinite scroll](https://velog.io/@merorii/Next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-infinite-scroll-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0)
+- [x] [배포](https://velog.io/@merorii/Next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%B0%B0%ED%8F%ACgh-pages-netlify-vercel)
+- [ ] 영상 재생
       <br/><br/>
 
 # **화면**
