@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import Link from "next/link";
 
 //layout
-import { MainLayout } from "../layout";
+import { MainLayout } from "src/layout";
 
 const NoPage: NextPage = () => {
   return (
