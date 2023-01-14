@@ -101,14 +101,11 @@ const Contents: NextPage<ContentPageProps> = (props) => {
         </div>
       </section>
       <section className="section__content-bottom-lists">
-        <section className="section__carousel-lists">
-          <h2>{content.title} 비슷한 영화</h2>
-          <Carousel data={similar}></Carousel>
-        </section>
-        <section className="section__carousel-lists">
-          <h2>추천 영화</h2>
-          <Carousel data={recommend}></Carousel>
-        </section>
+        <Carousel
+          data={similar}
+          title={`${content.title} 비슷한 영화`}
+        ></Carousel>
+        <Carousel data={recommend} title={`추천 영화`}></Carousel>
       </section>
     </MainLayout>
   );

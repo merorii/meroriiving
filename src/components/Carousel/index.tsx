@@ -20,7 +20,7 @@ import { movieResult } from "src/types";
 import { imageUrl } from "src/common/util";
 
 //style
-import { Card, PosterLayout } from "./style";
+import { Card, CarouselLayout } from "./style";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -29,12 +29,14 @@ import "swiper/css/effect-fade";
 interface CarouselProps {
   data: movieResult[];
   fade?: true | undefined;
+  title?: string;
+  viewAll?: { status: boolean; type?: string };
 }
 
 export const Carousel = (props: CarouselProps) => {
-  const { data, fade } = props;
+  const { data, fade, title, viewAll } = props;
   const [fadeData, setFadeData] = useState<number[]>([]);
-  const [current, setCurrentData] = useState(0);
+  const [current, setCurrentData] = useState<number>(0);
 
   useEffect(() => {
     if (fade && !fadeData.length) {
@@ -44,7 +46,13 @@ export const Carousel = (props: CarouselProps) => {
   }, [data, fade, fadeData]);
 
   return (
-    <PosterLayout fade={fade}>
+    <CarouselLayout fade={fade}>
+      {title && <h2>{title}</h2>}
+      {viewAll && viewAll.status && (
+        <div className="btn-all">
+          <Link href={`/list/${viewAll?.type}`}>전체보기</Link>
+        </div>
+      )}
       <Swiper
         spaceBetween={10}
         slidesPerView={fade ? 1 : 3}
@@ -126,10 +134,10 @@ export const Carousel = (props: CarouselProps) => {
         })}
       </Swiper>
       {fade && (
-        <div className="btn-more">
+        <div className="btn-detail">
           <Link href={`/contents/${fadeData[current]}`}>자세히 보기 </Link>
         </div>
       )}
-    </PosterLayout>
+    </CarouselLayout>
   );
 };

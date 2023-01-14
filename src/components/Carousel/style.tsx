@@ -4,7 +4,9 @@ interface FadeProps {
   fade: true | undefined;
 }
 
-export const PosterLayout = styled.div<FadeProps>`
+export const CarouselLayout = styled.div<FadeProps>`
+  position: relative;
+
   ${({ fade }) =>
     fade
       ? css`
@@ -24,6 +26,8 @@ export const PosterLayout = styled.div<FadeProps>`
           }
         `
       : css`
+          padding: 1rem 0;
+
           &:hover {
             .swiper-button-prev,
             .swiper-button-next {
@@ -66,7 +70,24 @@ export const PosterLayout = styled.div<FadeProps>`
     background: white;
   }
 
-  .btn-more {
+  h2 {
+    position: absolute;
+    top: 0;
+    margin: 0 0 0 3vw;
+  }
+
+  div.btn-all {
+    display: none;
+    position: absolute;
+    right: 2.5vw;
+    font-size: 0.8rem;
+    line-height: 1.6rem;
+    color: rgba(255, 255, 255, 0.7);
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  div.btn-detail {
     color: white;
     position: absolute;
     right: 3vw;
@@ -79,6 +100,12 @@ export const PosterLayout = styled.div<FadeProps>`
 
     @media only screen and (max-width: 768px) {
       font-size: 0.9rem;
+    }
+  }
+
+  &:hover {
+    div.btn-all {
+      display: block;
     }
   }
 `;
