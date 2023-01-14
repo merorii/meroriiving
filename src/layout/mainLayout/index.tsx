@@ -1,4 +1,18 @@
-import styled from "styled-components";
+// base
+import React, { HTMLAttributes } from "react";
+
+// components
+import { Footer, MainNav } from "src/components";
+
+// style
+import { MainContentStyled } from "./style";
+
+interface MainLayoutProps extends HTMLAttributes<HTMLDivElement> {}
+
+export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+  return (
+    <>
+      <MainNav />import styled from "styled-components";
 
 export const MainContentStyled = styled.section`
   background: black;
@@ -221,3 +235,9 @@ export const MainContentStyled = styled.section`
     }
   }
 `;
+
+      <MainContentStyled>{children}</MainContentStyled>
+      <Footer />
+    </>
+  );
+};

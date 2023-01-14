@@ -4,7 +4,10 @@ import Image from "next/image";
 import { useState } from "react";
 
 //components
-import { Carousel, MainLayout } from "src/components";
+import { Carousel } from "src/components";
+
+//layout
+import { MainLayout } from "src/layout";
 
 //type
 import { genre, ContentPageProps, crew } from "src/types";

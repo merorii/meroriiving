@@ -3,7 +3,10 @@ import type { GetServerSideProps, NextPage } from "next";
 import { useRef } from "react";
 
 //components
-import { MainLayout, CardList } from "src/components";
+import { CardList } from "src/components";
+
+//layout
+import { MainLayout } from "src/layout";
 
 //hooks
 import { useInfiniteQueryList, useIntersectionObserver } from "src/hooks";

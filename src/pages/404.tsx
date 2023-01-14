@@ -2,8 +2,8 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 
-//components
-import { MainLayout } from "../components";
+//layout
+import { MainLayout } from "../layout";
 
 const NoPage: NextPage = () => {
   return (
