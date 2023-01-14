@@ -20,7 +20,7 @@ export const MainNav = () => {
       </div>
       <div>
         <div
-          className={`search-icon${searchPop ? " exit" : ""}`}
+          className={`icon-search${searchPop ? " icon-search-exit" : ""}`}
           onClick={() => {
             setSearchPop(!searchPop);
           }}

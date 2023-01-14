@@ -23,12 +23,10 @@ const Home: NextPage<HomePageProps> = (props) => {
 
   return (
     <MainLayout>
-      <section>
-        <Carousel data={popular.slice(0, 4)} fade />
-      </section>
-      <section className="main-section">
+      <Carousel data={popular.slice(0, 4)} fade />
+      <section className="section__main-lists">
         {Object.keys(types).map((type) => (
-          <section className="list-section" key={type}>
+          <section key={type} className="section__carousel-lists">
             <h2>{menuName(type)} 영화</h2>
             <p className="btn-all">
               <Link href={`/list/${type}`}>전체보기</Link>

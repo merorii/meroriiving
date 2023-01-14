@@ -31,7 +31,7 @@ const List: NextPage<ListPageProps> = ({ result, params }) => {
 
   return (
     <MainLayout>
-      <section className="search-section">
+      <section className="section__search-lists">
         <p>
           {menuName(params.type)} 영화 검색결과({result.total_results}개)
         </p>

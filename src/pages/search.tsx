@@ -28,7 +28,7 @@ const Search: NextPage<SearchPageProps> = ({ keyword }) => {
 
   return (
     <MainLayout>
-      <section className="search-section">
+      <section className="section__search-lists">
         <p>
           &#34;{keyword}&#34; 검색 결과가 {(data && data[0].total_result) || 0}
           개 있습니다.

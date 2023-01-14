@@ -31,8 +31,8 @@ export const SearchBarLayout = styled.div`
     }
   }
 
-  .search-recent {
-    .search-recent__title {
+  .list-search-recent {
+    .list-search-recent__title {
       display: flex;
       align-items: center;
       margin-bottom: 0.7rem;
@@ -42,7 +42,7 @@ export const SearchBarLayout = styled.div`
       }
     }
 
-    p.delete-btn {
+    p.btn-delete {
       display: inline;
       font-size: 0.9rem;
       color: hsla(0, 0%, 100%, 0.7);
