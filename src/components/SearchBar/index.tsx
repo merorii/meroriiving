@@ -56,7 +56,7 @@ export const SearchBar = () => {
             if (e.keyCode === 13) moveSearchPage();
           }}
         ></input>
-        <div onClick={moveSearchPage} className="search-icon"></div>
+        <div onClick={moveSearchPage} className="icon-search"></div>
       </div>
       <div className="list-search-recent">
         <div className="list-search-recent__title">

@@ -13,6 +13,9 @@ import {
   Autoplay,
 } from "swiper";
 
+//components
+import { Card } from "src/components";
+
 //type
 import { movieResult } from "src/types";
 
@@ -20,7 +23,7 @@ import { movieResult } from "src/types";
 import { imageUrl } from "src/common/util";
 
 //style
-import { Card, CarouselLayout } from "./style";
+import { FadePoster, CarouselLayout } from "./style";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -103,32 +106,13 @@ export const Carousel = (props: CarouselProps) => {
           const { id, title, poster_path, backdrop_path } = result;
           return fade ? (
             <SwiperSlide key={id}>
-              <Card fade={fade}>
-                <div className="movie-poster">
-                  <Image fill priority src={imageUrl(backdrop_path)} alt="" />
-                </div>
-              </Card>
+              <FadePoster fade={fade}>
+                <Image fill priority src={imageUrl(backdrop_path)} alt="" />
+              </FadePoster>
             </SwiperSlide>
           ) : (
             <SwiperSlide key={id}>
-              <Link href="/contents/[id]" as={`/contents/${id}`}>
-                <Card fade={fade}>
-                  {poster_path ? (
-                    <div className="movie-poster">
-                      <Image
-                        fill
-                        sizes="10vw"
-                        src={imageUrl(poster_path)}
-                        alt=""
-                      />
-                    </div>
-                  ) : (
-                    <div className="movie-poster blank">준비중입니다.</div>
-                  )}
-
-                  <div className="movie-title">{title}</div>
-                </Card>
-              </Link>
+              <Card card={{ id, poster_path, title }} carousel />
             </SwiperSlide>
           );
         })}

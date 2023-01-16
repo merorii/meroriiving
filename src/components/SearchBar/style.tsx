@@ -32,6 +32,11 @@ export const SearchBarLayout = styled.div`
   }
 
   .list-search-recent {
+    div:not(.list-search-recent__title) {
+      &:hover {
+        font-weight: bold;
+      }
+    }
     .list-search-recent__title {
       display: flex;
       align-items: center;
