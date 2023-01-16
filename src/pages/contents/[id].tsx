@@ -24,6 +24,9 @@ import { country, imageUrl } from "src/common/util";
 const Contents: NextPage<ContentPageProps> = (props) => {
   const { content, similar, recommend } = props;
   const [overviewStatus, setOverviewStatus] = useState(false);
+  {
+    console.log(content);
+  }
 
   return (
     <MainLayout>

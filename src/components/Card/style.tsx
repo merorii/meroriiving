@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 interface Props {
   carousel?: boolean | undefined;
@@ -20,50 +20,35 @@ export const CardWrap = styled.div<Props>`
 
   .movie-poster {
     width: 100%;
-    height: 17vw;
+    height: ${({ carousel }) => (carousel ? "15vw" : "17vw")};
     border-radius: 10px;
     position: relative;
     overflow: hidden;
   }
 
   @media only screen and (max-width: 1400px) {
-    width: 14vw;
+    width: ${({ carousel }) => !carousel && "14vw"};
     div.movie-poster {
-      height: 20vw;
+      height: ${({ carousel }) => (carousel ? "16vw" : "20vw")};
     }
   }
   @media only screen and (max-width: 1024px) {
-    width: 16vw;
+    width: ${({ carousel }) => !carousel && "16vw"};
     div.movie-poster {
-      height: 22vw;
+      height: ${({ carousel }) => (carousel ? "18vw" : "22vw")};
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    div.movie-poster {
+      height: ${({ carousel }) => carousel && "24vw"};
     }
   }
   @media only screen and (max-width: 639px) {
-    width: 29vw;
+    width: ${({ carousel }) => !carousel && "29vw"};
     div.movie-poster {
-      height: 40vw;
+      height: ${({ carousel }) => (carousel ? "42vw" : "40vw")};
     }
   }
-
-  ${({ carousel }) =>
-    carousel &&
-    css`
-      .movie-poster {
-        height: 15vw;
-        @media only screen and (max-width: 1400px) {
-          height: 16vw;
-        }
-        @media only screen and (max-width: 1024px) {
-          height: 18vw;
-        }
-        @media only screen and (max-width: 768px) {
-          height: 24vw;
-        }
-        @media only screen and (max-width: 639px) {
-          height: 42vw;
-        }
-      }
-    `}
 
   .movie-title {
     padding: 0.6em 1em 0 0.05em;
