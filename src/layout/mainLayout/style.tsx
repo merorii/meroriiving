@@ -5,7 +5,7 @@ export const MainContentStyled = styled.section`
   color: white;
   min-height: 100vh;
 
-  .main-section {
+  .section__main-lists {
     position: relative;
     top: -20vw;
     margin-bottom: -10vw;
@@ -18,35 +18,7 @@ export const MainContentStyled = styled.section`
     z-index: 5;
   }
 
-  .list-section {
-    position: relative;
-    padding: 1rem 0;
-
-    &:hover {
-      p.btn-all {
-        display: block;
-      }
-    }
-
-    h2 {
-      position: absolute;
-      top: 0;
-      margin: 0 0 0 3vw;
-    }
-
-    p.btn-all {
-      display: none;
-      position: absolute;
-      right: 2.5vw;
-      font-size: 0.8rem;
-      line-height: 1.6rem;
-      color: rgba(255, 255, 255, 0.7);
-      z-index: 2;
-      cursor: pointer;
-    }
-  }
-
-  .bottom_section {
+  .section__content-bottom-lists {
     position: relative;
     background: linear-gradient(
       to bottom,
@@ -59,7 +31,7 @@ export const MainContentStyled = styled.section`
     }
   }
 
-  .contents__background {
+  .contents-background {
     position: absolute;
     opacity: 0.2;
     width: 100%;
@@ -73,7 +45,7 @@ export const MainContentStyled = styled.section`
     }
   }
 
-  .contents__section {
+  .section__content {
     position: relative;
     top: 0;
     margin: 0 3vw 5vw;
@@ -174,7 +146,7 @@ export const MainContentStyled = styled.section`
     height: 100%;
   }
 
-  .search-section {
+  .section__search-lists {
     position: relative;
     margin: 0 3vw;
     padding: 10vw 2vw 5vw;
@@ -199,7 +171,7 @@ export const MainContentStyled = styled.section`
     }
   }
 
-  .page-404 {
+  .page__not-found {
     position: relative;
     display: flex;
     justify-content: center;

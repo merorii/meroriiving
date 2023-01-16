@@ -12,13 +12,14 @@ interface Props {
   card: {
     id: number;
     poster_path: string;
-    title: string;
+    title?: string;
   };
+  carousel?: boolean;
 }
-export const Card = (props: Props) => {
-  const { id, poster_path, title } = props.card;
+export const Card = ({ card, carousel }: Props) => {
+  const { id, poster_path, title } = card;
   return (
-    <CardWrap>
+    <CardWrap carousel={carousel}>
       <Link href="/contents/[id]" as={`/contents/${id}`}>
         <div className="movie-poster">
           {poster_path ? (
@@ -27,7 +28,7 @@ export const Card = (props: Props) => {
             <div className="poster blank">이미지 준비중입니다.</div>
           )}
         </div>
-        <div className="movie-title">{title}</div>
+        {title && <p className="movie-title">{title}</p>}
       </Link>
     </CardWrap>
   );

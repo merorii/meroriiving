@@ -56,13 +56,13 @@ export const SearchBar = () => {
             if (e.keyCode === 13) moveSearchPage();
           }}
         ></input>
-        <div onClick={moveSearchPage} className="search-icon"></div>
+        <div onClick={moveSearchPage} className="icon-search"></div>
       </div>
-      <div className="search-recent">
-        <div className="search-recent__title">
+      <div className="list-search-recent">
+        <div className="list-search-recent__title">
           <p>최근 검색어</p>
           <p
-            className="delete-btn"
+            className="btn-delete"
             onClick={() => {
               removeKeywords("all");
             }}
@@ -74,7 +74,7 @@ export const SearchBar = () => {
           <div key={`${keyword}_${idx}`}>
             <Link href={`/search/keyword=${keyword}`}>{keyword} </Link>
             <p
-              className="delete-btn"
+              className="btn-delete"
               onClick={() => {
                 removeKeywords(idx);
               }}

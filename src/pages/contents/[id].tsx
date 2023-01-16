@@ -4,7 +4,10 @@ import Image from "next/image";
 import { useState } from "react";
 
 //components
-import { Carousel, MainLayout } from "src/components";
+import { Carousel } from "src/components";
+
+//layout
+import { MainLayout } from "src/layout";
 
 //type
 import { genre, ContentPageProps, crew } from "src/types";
@@ -21,15 +24,18 @@ import { country, imageUrl } from "src/common/util";
 const Contents: NextPage<ContentPageProps> = (props) => {
   const { content, similar, recommend } = props;
   const [overviewStatus, setOverviewStatus] = useState(false);
+  {
+    console.log(content);
+  }
 
   return (
     <MainLayout>
-      <div className="contents__background">
+      <div className="contents-background">
         {content.backdrop_path && (
           <Image src={imageUrl(content.backdrop_path)} alt="" fill priority />
         )}
       </div>
-      <section className="contents__section">
+      <section className="section__content">
         <div className="contents__text">
           <div className="contents-title">{content.title}</div>
           <div className="contents-original-title">
@@ -97,15 +103,12 @@ const Contents: NextPage<ContentPageProps> = (props) => {
           )}
         </div>
       </section>
-      <section className="bottom_section">
-        <section className="list-section">
-          <h2>{content.title} 비슷한 영화</h2>
-          <Carousel data={similar}></Carousel>
-        </section>
-        <section className="list-section">
-          <h2>추천 영화</h2>
-          <Carousel data={recommend}></Carousel>
-        </section>
+      <section className="section__content-bottom-lists">
+        <Carousel
+          data={similar}
+          title={`${content.title} 비슷한 영화`}
+        ></Carousel>
+        <Carousel data={recommend} title={`추천 영화`}></Carousel>
       </section>
     </MainLayout>
   );

@@ -4,7 +4,9 @@ interface FadeProps {
   fade: true | undefined;
 }
 
-export const PosterLayout = styled.div<FadeProps>`
+export const CarouselLayout = styled.div<FadeProps>`
+  position: relative;
+
   ${({ fade }) =>
     fade
       ? css`
@@ -24,6 +26,8 @@ export const PosterLayout = styled.div<FadeProps>`
           }
         `
       : css`
+          padding: 1rem 0;
+
           &:hover {
             .swiper-button-prev,
             .swiper-button-next {
@@ -66,7 +70,24 @@ export const PosterLayout = styled.div<FadeProps>`
     background: white;
   }
 
-  .btn-more {
+  h2 {
+    position: absolute;
+    top: 0;
+    margin: 0 0 0 3vw;
+  }
+
+  div.btn-all {
+    display: none;
+    position: absolute;
+    right: 2.5vw;
+    font-size: 0.8rem;
+    line-height: 1.6rem;
+    color: rgba(255, 255, 255, 0.7);
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  div.btn-detail {
     color: white;
     position: absolute;
     right: 3vw;
@@ -81,56 +102,18 @@ export const PosterLayout = styled.div<FadeProps>`
       font-size: 0.9rem;
     }
   }
-`;
 
-export const Card = styled.div<FadeProps>`
-  /* width: 100%; */
-  ${({ fade }) =>
-    !fade &&
-    css`
-      transition: transform 0.3s ease-in-out;
-      &:hover {
-        opacity: 0.8;
-        transform: translate3d(0, -0.75rem, 0);
-      }
-    `}
-
-  .movie-poster {
-    position: relative;
-    width: 100%;
-    height: ${({ fade }) => (fade ? "50vw" : "15vw")};
-    overflow: hidden;
-    border-radius: 10px;
-    ${({ fade }) =>
-      !fade &&
-      css`
-        @media only screen and (max-width: 1400px) {
-          height: 16vw;
-        }
-        @media only screen and (max-width: 1024px) {
-          height: 18vw;
-        }
-        @media only screen and (max-width: 768px) {
-          height: 24vw;
-        }
-        @media only screen and (max-width: 639px) {
-          height: 42vw;
-        }
-      `};
-  }
-
-  .movie-title {
-    padding: 0.6em 1em 0 0.05em;
-    box-sizing: border-box;
-    color: hsla(0, 0%, 100%, 0.7);
-    font-size: 1vw;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    word-wrap: break-word;
-
-    @media only screen and (max-width: 768px) {
-      font-size: 1rem;
+  &:hover {
+    div.btn-all {
+      display: block;
     }
   }
+`;
+
+export const FadePoster = styled.div<FadeProps>`
+  position: relative;
+  width: 100%;
+  height: 50vw;
+  overflow: hidden;
+  border-radius: 10px;
 `;

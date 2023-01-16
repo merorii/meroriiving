@@ -3,7 +3,10 @@ import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
 
 //components
-import { MainLayout, Carousel } from "../components";
+import { Carousel } from "src/components";
+
+//layout
+import { MainLayout } from "src/layout";
 
 //type
 import { TypeProps, HomePageProps } from "src/types";
@@ -23,18 +26,15 @@ const Home: NextPage<HomePageProps> = (props) => {
 
   return (
     <MainLayout>
-      <section>
-        <Carousel data={popular.slice(0, 4)} fade />
-      </section>
-      <section className="main-section">
+      <Carousel data={popular.slice(0, 4)} fade />
+      <section className="section__main-lists">
         {Object.keys(types).map((type) => (
-          <section className="list-section" key={type}>
-            <h2>{menuName(type)} 영화</h2>
-            <p className="btn-all">
-              <Link href={`/list/${type}`}>전체보기</Link>
-            </p>
-            <Carousel data={types[type]} />
-          </section>
+          <Carousel
+            key={type}
+            data={types[type]}
+            title={`${menuName(type)} 영화`}
+            viewAll={{ status: true, type }}
+          />
         ))}
       </section>
     </MainLayout>

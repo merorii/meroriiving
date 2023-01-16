@@ -3,7 +3,10 @@ import type { GetServerSideProps, NextPage } from "next";
 import { useRef } from "react";
 
 //components
-import { CardList, MainLayout } from "src/components";
+import { CardList } from "src/components";
+
+//layout
+import { MainLayout } from "src/layout";
 
 //hook
 import { useInfiniteQueryList, useIntersectionObserver } from "src/hooks";
@@ -31,7 +34,7 @@ const List: NextPage<ListPageProps> = ({ result, params }) => {
 
   return (
     <MainLayout>
-      <section className="search-section">
+      <section className="section__search-lists">
         <p>
           {menuName(params.type)} 영화 검색결과({result.total_results}개)
         </p>

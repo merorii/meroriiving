@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { SearchBar } from "../SearchBar";
+import { SearchBar } from "src/components";
 import { MainNavStyled, Menus } from "./style";
 
 export const MainNav = () => {
@@ -20,7 +20,7 @@ export const MainNav = () => {
       </div>
       <div>
         <div
-          className={`search-icon${searchPop ? " exit" : ""}`}
+          className={`icon-search${searchPop ? " icon-search-exit" : ""}`}
           onClick={() => {
             setSearchPop(!searchPop);
           }}

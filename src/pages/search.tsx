@@ -3,7 +3,10 @@ import type { GetServerSideProps, NextPage } from "next";
 import { useRef } from "react";
 
 //components
-import { MainLayout, CardList } from "src/components";
+import { CardList } from "src/components";
+
+//layout
+import { MainLayout } from "src/layout";
 
 //hooks
 import { useInfiniteQueryList, useIntersectionObserver } from "src/hooks";
@@ -28,7 +31,7 @@ const Search: NextPage<SearchPageProps> = ({ keyword }) => {
 
   return (
     <MainLayout>
-      <section className="search-section">
+      <section className="section__search-lists">
         <p>
           &#34;{keyword}&#34; 검색 결과가 {(data && data[0].total_result) || 0}
           개 있습니다.

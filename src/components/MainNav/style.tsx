@@ -17,7 +17,7 @@ export const MainNavStyled = styled.header`
     align-items: center;
   }
 
-  .search-icon {
+  .icon-search {
     width: 2rem;
     height: 2rem;
     margin-left: 1rem;
@@ -28,7 +28,7 @@ export const MainNavStyled = styled.header`
       width: 100%;
       height: 100%;
     }
-    &.exit {
+    &.icon-search-exit {
       background: url("https://www.tving.com/img/x.svg");
     }
   }
