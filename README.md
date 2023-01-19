@@ -6,9 +6,14 @@ https://meroriiving.vercel.app/
 
 # **사용기술**
 
-<img src="https://img.shields.io/badge/next.js -eee?style=flat-square&logo=next.js&logoColor=000"/> <img src="https://img.shields.io/badge/typescript -eee?style=flat-square&logo=typescript&logoColor=3178C6"/>
-<img src="https://img.shields.io/badge/styled components -eee?style=flat-square&logo=styled-components&logoColor=DB7093"/>
-<img src="https://img.shields.io/badge/vercel -eee?style=flat-square&logo=vercel&logoColor=000"/>
+![next](https://img.shields.io/badge/next.js-eee?style=flat-square&logo=next.js&logoColor=000)
+![typescript](https://img.shields.io/badge/typescript-eee?style=flat-square&logo=typescript)
+![react-query](https://img.shields.io/badge/react_query-eee?style=flat-square&logo=react-query)
+![styled_components](https://img.shields.io/badge/styled_components-eee?style=flat-square&logo=styled-components)
+![vercel](https://img.shields.io/badge/vercel-eee?style=flat-square&logo=vercel&logoColor=000)
+![axios](https://img.shields.io/badge/axios-eee?style=flat-square)
+![swiper](https://img.shields.io/badge/swiper-eee?style=flat-square)
+![tmdb](https://img.shields.io/badge/TMDB_api-eee?style=flat-square)
 <br/><br/>
 
 # **기능**
@@ -84,7 +89,7 @@ blog : https://velog.io/@merorii/series/next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8
 - 영화 포스터 클릭 시 해당 영화 정보 페이지로 이동
   <br/><br/>
 
-## **검색**
+## **🎈 검색**
 
 <img src="./public/readme/search.gif" alt="search"/>
 
@@ -97,7 +102,7 @@ blog : https://velog.io/@merorii/series/next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8
   - 최근 검색어 모두 삭제 버튼 클릭 시 최근 검색어 모두 삭제
     <br/><br/>
 
-## **반응형**
+## **🎈 반응형**
 
 - 모든 페이지 반응형 적용
 - 메인페이지  
