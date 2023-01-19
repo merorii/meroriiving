@@ -52,11 +52,11 @@ blog : https://velog.io/@merorii/series/next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8
 
 ## **🎈 메인페이지**
 
-- 메인페이지 상단
+- 메인페이지 상단  
   <img src="./public/readme/main.gif" alt="main01"/>
   - 추천 영화 4가지 fade형 슬라이드 자동재생  
     <br/>
-- 메인페이지 하단
+- 메인페이지 하단  
   <img src="./public/readme/main02.gif" alt="main02"/>
   - 항목별 리스트 carousel형 슬라이드
   - 영화 포스터 클릭시 해당 영화 정보 페이지로 이동
@@ -100,13 +100,13 @@ blog : https://velog.io/@merorii/series/next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8
 ## **반응형**
 
 - 모든 페이지 반응형 적용
-- 메인페이지
+- 메인페이지  
   <img src="./public/readme/responsive.gif" alt="responsive"/>
 
-- 영화 정보 페이지
+- 영화 정보 페이지  
   <img src="./public/readme/responsive02.gif" alt="responsive02"/>
 
-- 영화 리스트 페이지
+- 영화 리스트 페이지  
   <img src="./public/readme/responsive03.gif" alt="responsive03"/>
   <br/><br/>
 
