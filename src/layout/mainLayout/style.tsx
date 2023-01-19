@@ -35,7 +35,7 @@ export const MainContentStyled = styled.section`
     position: absolute;
     opacity: 0.2;
     width: 100%;
-    height: 90vh;
+    height: 100vh;
 
     @media only screen and (max-width: 768px) {
       position: relative;
