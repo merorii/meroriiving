@@ -73,7 +73,7 @@ export const CarouselLayout = styled.div<FadeProps>`
   h2 {
     position: absolute;
     top: 0;
-    margin: 0 0 0 3vw;
+    margin: 0 3vw;
   }
 
   div.btn-all {

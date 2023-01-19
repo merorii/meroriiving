@@ -12,11 +12,11 @@ export const MainNav = () => {
         <h1>
           <Link href={"/"}>MERORIIVING</Link>
         </h1>
-        <Menus>
+        {/* <Menus>
           <div>실시간</div>
           <div>TV</div>
           <div>영화</div>
-        </Menus>
+        </Menus> */}
       </div>
       <div>
         <div

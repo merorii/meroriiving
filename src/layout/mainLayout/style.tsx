@@ -35,11 +35,11 @@ export const MainContentStyled = styled.section`
     position: absolute;
     opacity: 0.2;
     width: 100%;
-    height: 80vh;
+    height: 90vh;
 
     @media only screen and (max-width: 768px) {
       position: relative;
-      height: 40vh;
+      height: 35vh;
       opacity: 1;
       margin-top: 5rem;
     }
@@ -48,8 +48,8 @@ export const MainContentStyled = styled.section`
   .section__content {
     position: relative;
     top: 0;
-    margin: 0 3vw 5vw;
-    padding: 10vw 2vw 5vw;
+    margin: 0 3vw 4rem;
+    padding: 10vw 2vw 5rem;
     color: rgba(255, 255, 255, 0.7);
     display: grid;
     column-gap: 2.5rem;

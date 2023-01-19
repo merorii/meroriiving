@@ -5,13 +5,17 @@ export const SearchBarLayout = styled.div`
   top: 0;
   right: 0;
   width: 100%;
-  height: 50vw;
+  height: 40vw;
   padding-top: 15vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   background: #222;
   z-index: -1;
+
+  @media only screen and (max-width: 1200px) {
+    height: 60vh;
+  }
 
   & > div {
     width: 60%;
