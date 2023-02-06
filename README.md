@@ -18,15 +18,6 @@ https://meroriiving.vercel.app/
 
 # **기능**
 
-**TODO**
-
-- [ ] 코드 리팩토링
-  - [x] css 네이밍 통일
-  - [ ] 스타일컴포넌트명 통일
-  - [x] 공통 부분 컴포넌트화
-- [ ] 동영상 재생 기능 추가
-- [ ] 모바일 반응형 수정
-
 **DONE**
 
 - [x] 메인화면
@@ -37,12 +28,20 @@ https://meroriiving.vercel.app/
 - [x] 리스트페이지 인피니티스크롤 적용
 - [x] 각 페이지 반응형 작업
 - [x] 검색창 팝업 추가
+- [x] 모바일 반응형 수정
+- [x] 코드 리팩토링
+  - [x] css 네이밍 통일
+  - [x] 공통 부분 컴포넌트화
+
+**TODO**
+
+- [ ] 동영상 재생 기능 추가
 
 <br/><br/>
 
 # **개발과정**
 
-blog : https://velog.io/@merorii/series/next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8
+blog : https://velog.io/@merorii/series/next.js-project
 
 - [x] [next 프로젝트 setting](https://velog.io/@merorii/Next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%84%B8%ED%8C%85)
 - [x] [react-query](https://velog.io/@merorii/Next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-Open-API)
