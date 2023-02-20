@@ -6,21 +6,17 @@ https://meroriiving.vercel.app/
 
 # **사용기술**
 
-<img src="https://img.shields.io/badge/next.js -eee?style=flat-square&logo=next.js&logoColor=000"/> <img src="https://img.shields.io/badge/typescript -eee?style=flat-square&logo=typescript&logoColor=3178C6"/>
-<img src="https://img.shields.io/badge/styled components -eee?style=flat-square&logo=styled-components&logoColor=DB7093"/>
-<img src="https://img.shields.io/badge/vercel -eee?style=flat-square&logo=vercel&logoColor=000"/>
+![next](https://img.shields.io/badge/next.js-eee?style=flat-square&logo=next.js&logoColor=000)
+![typescript](https://img.shields.io/badge/typescript-eee?style=flat-square&logo=typescript)
+![react-query](https://img.shields.io/badge/react_query-eee?style=flat-square&logo=react-query)
+![styled_components](https://img.shields.io/badge/styled_components-eee?style=flat-square&logo=styled-components)
+![vercel](https://img.shields.io/badge/vercel-eee?style=flat-square&logo=vercel&logoColor=000)
+![axios](https://img.shields.io/badge/axios-eee?style=flat-square)
+![swiper](https://img.shields.io/badge/swiper-eee?style=flat-square)
+![tmdb](https://img.shields.io/badge/TMDB_api-eee?style=flat-square)
 <br/><br/>
 
 # **기능**
-
-**TODO**
-
-- [ ] 코드 리팩토링
-  - [x] css 네이밍 통일
-  - [ ] 스타일컴포넌트명 통일
-  - [x] 공통 부분 컴포넌트화
-- [ ] 동영상 재생 기능 추가
-- [ ] 모바일 반응형 수정
 
 **DONE**
 
@@ -32,12 +28,20 @@ https://meroriiving.vercel.app/
 - [x] 리스트페이지 인피니티스크롤 적용
 - [x] 각 페이지 반응형 작업
 - [x] 검색창 팝업 추가
+- [x] 모바일 반응형 수정
+- [x] 코드 리팩토링
+  - [x] css 네이밍 통일
+  - [x] 공통 부분 컴포넌트화
+
+**TODO**
+
+- [ ] 동영상 재생 기능 추가
 
 <br/><br/>
 
 # **개발과정**
 
-blog : https://velog.io/@merorii/series/next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8
+blog : https://velog.io/@merorii/series/next.js-project
 
 - [x] [next 프로젝트 setting](https://velog.io/@merorii/Next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%84%B8%ED%8C%85)
 - [x] [react-query](https://velog.io/@merorii/Next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-Open-API)
@@ -52,11 +56,11 @@ blog : https://velog.io/@merorii/series/next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8
 
 ## **🎈 메인페이지**
 
-- 메인페이지 상단
+- 메인페이지 상단  
   <img src="./public/readme/main.gif" alt="main01"/>
   - 추천 영화 4가지 fade형 슬라이드 자동재생  
     <br/>
-- 메인페이지 하단
+- 메인페이지 하단  
   <img src="./public/readme/main02.gif" alt="main02"/>
   - 항목별 리스트 carousel형 슬라이드
   - 영화 포스터 클릭시 해당 영화 정보 페이지로 이동
@@ -84,7 +88,7 @@ blog : https://velog.io/@merorii/series/next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8
 - 영화 포스터 클릭 시 해당 영화 정보 페이지로 이동
   <br/><br/>
 
-## **검색**
+## **🎈 검색**
 
 <img src="./public/readme/search.gif" alt="search"/>
 
@@ -97,16 +101,16 @@ blog : https://velog.io/@merorii/series/next.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8
   - 최근 검색어 모두 삭제 버튼 클릭 시 최근 검색어 모두 삭제
     <br/><br/>
 
-## **반응형**
+## **🎈 반응형**
 
 - 모든 페이지 반응형 적용
-- 메인페이지
+- 메인페이지  
   <img src="./public/readme/responsive.gif" alt="responsive"/>
 
-- 영화 정보 페이지
+- 영화 정보 페이지  
   <img src="./public/readme/responsive02.gif" alt="responsive02"/>
 
-- 영화 리스트 페이지
+- 영화 리스트 페이지  
   <img src="./public/readme/responsive03.gif" alt="responsive03"/>
   <br/><br/>
 
